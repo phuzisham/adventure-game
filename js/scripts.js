@@ -6,14 +6,21 @@ function wait(ms){
   }
 }
 
-function Player(inventory) {
+function Player() {
   this.inventory = ['Knife', 'Marbles'];
   this.health = 90;
 }
 
+Player.prototype.displayInventory = function() {
+  for (var i = 0; i < this.inventory.length; i++) {
+    $('#player-inventory').append('<li>' + this.inventory[i] + ' </li>');
+  }
+}
+
 $(document).ready(function() {
   var newPlayer = new Player();
-  $('#player-inventory').text(newPlayer.inventory);
+  newPlayer.displayInventory();
+
   $('#player-health').text(newPlayer.health);
 
   $('.try-again').click(function() {
