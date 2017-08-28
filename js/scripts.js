@@ -130,11 +130,30 @@ $(document).ready(function() {
   });
 
   $('#button6-1-search').click(function(event) {
-    newPlayer.inventory = newPlayer.inventory.push('key');
+    newPlayer.inventory.push('Key');
+    newPlayer.displayInventory();
+    $('#river').append("You found a Key!");
   });
 
   $('#button6-1-boat').click(function(event) {
-    newPlayer.inventory = newPlayer.inventory.push('key');
+    $('#river').hide(800);
+    $('#boat').show(800);
+  });
+
+  $('#boat-open').click(function(event) {
+    if (newPlayer.checkForItem("Key")){
+      $('#boat').hide(800);
+      $('#prison-cell').show(800);
+    } else {
+      alert("You need a key to enter the prison cell.");
+      $('#boat').hide(800);
+      $('#river').show(800);
+    }
+
+  });
+
+  $('#prison-cell-return').click(function(event) {
+    newPlayer.inventory = newPlayer.inventory.push('Key');
   });
 
 
