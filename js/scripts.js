@@ -56,7 +56,7 @@ $(document).ready(function() {
     $('#story3-2').hide(800);
     $('#story3-3').show(800);
     newPlayer.inventory = newPlayer.inventory.push('Apples', 'Bread', 'Sling-Shot', 'Torch');
-    $('#player-inventory').text(newPlayer.inventory);
+    newPlayer.displayInventory();
   });
 
   $('#button3-3-left').click(function(event) {
@@ -104,6 +104,19 @@ $(document).ready(function() {
     $('#player-health').text(newPlayer.health);
   });
 
+  $('#button5-2-river').click(function(event) {
+    $('#story5-2').hide(800);
+    $('#story6-1').show(800);
+
+  });
+
+  $('#button6-1-search').click(function(event) {
+    newPlayer.inventory = newPlayer.inventory.push('key');
+  });
+
+  $('#button6-1-boat').click(function(event) {
+    newPlayer.inventory = newPlayer.inventory.push('key');
+  });
   // $('#button5-1-bread').click(function(event) {
   //   $('#story5-1').hide(800);
   //   $('#story5-2').show(800);

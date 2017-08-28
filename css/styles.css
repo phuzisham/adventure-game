@@ -28,42 +28,7 @@ button {
   color: #eac67a;
 }
 
-#story2-1 {
-  display: none;
-}
 
-#story2-2 {
-  display: none;
-}
-
-#story3-1 {
-  display: none;
-}
-
-#story3-2 {
-  display: none;
-}
-
-#story3-3 {
-  display: none;
-}
-
-#story4-1 {
-  display: none;
-}
-
-#story4-2 {
-  display: none;
-}
-
-#story4-3 {
-  display: none;
-}
-
-#story5-1 {
-  display: none;
-}
-
-#story5-2 {
+.roomies {
   display: none;
 }
