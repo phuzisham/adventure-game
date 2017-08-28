@@ -123,4 +123,19 @@ $(document).ready(function() {
     newPlayer.removeInventory('Bread');
   });
 
+  $('#button5-2-river').click(function(event) {
+    $('#long-tunnel-end').hide(800);
+    $('#river').show(800);
+
+  });
+
+  $('#button6-1-search').click(function(event) {
+    newPlayer.inventory = newPlayer.inventory.push('key');
+  });
+
+  $('#button6-1-boat').click(function(event) {
+    newPlayer.inventory = newPlayer.inventory.push('key');
+  });
+
+
 });
