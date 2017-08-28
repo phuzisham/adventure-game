@@ -7,13 +7,12 @@ function wait(ms){
 }
 
 function Player(inventory) {
-  this.inventory = inventory;
+  this.inventory = ['Knife', 'Marbles'];
   this.health = 90;
 }
 
 $(document).ready(function() {
-  var playerInventory = 'Knife, Marbles, ';
-  var newPlayer = new Player(playerInventory);
+  var newPlayer = new Player();
   $('#player-inventory').text(newPlayer.inventory);
   $('#player-health').text(newPlayer.health);
 
@@ -49,7 +48,7 @@ $(document).ready(function() {
   $('#button3-2-return').click(function(event) {
     $('#story3-2').hide(800);
     $('#story3-3').show(800);
-    newPlayer.inventory = newPlayer.inventory + 'Apples, ' + 'Bread, ' + 'Sling-Shot, ' + 'Torch, ';
+    newPlayer.inventory = newPlayer.inventory.push('Apples', 'Bread', 'Sling-Shot', 'Torch');
     $('#player-inventory').text(newPlayer.inventory);
   });
 
