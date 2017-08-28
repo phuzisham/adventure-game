@@ -47,77 +47,77 @@ $(document).ready(function() {
   });
 
   $('#button1-left').click(function(event) {
-    $('#story1').hide(800);
-    $('#story2-1').show(800);
+    $('#entrance').hide(800);
+    $('#death1').show(800);
   });
 
   $('#button1-right').click(function(event) {
-    $('#story1').hide(800);
-    $('#story2-2').show(800);
+    $('#entrance').hide(800);
+    $('#wet-tunnel').show(800);
   });
 
   $('#button2-2-left').click(function(event) {
-    $('#story2-2').hide(800);
-    $('#story3-1').show(800);
+    $('#wet-tunnel').hide(800);
+    $('#wet-tunnel-end').show(800);
   });
 
   $('#button2-2-right').click(function(event) {
-    $('#story2-2').hide(800);
-    $('#story3-2').show(800);
+    $('#wet-tunnel').hide(800);
+    $('#cold-room').show(800);
   });
 
   $('#button3-1-right').click(function(event) {
-    $('#story3-1').hide(800);
-    $('#story3-2').show(800);
+    $('#wet-tunnel-end').hide(800);
+    $('#cold-room').show(800);
   });
 
   $('#button3-2-return').click(function(event) {
-    $('#story3-2').hide(800);
-    $('#story3-3').show(800);
+    $('#cold-room').hide(800);
+    $('#wet-tunnel-torch').show(800);
     newPlayer.inventory.push('Apples', 'Bread', 'Sling-Shot', 'Torch');
     newPlayer.displayInventory();
   });
 
   $('#button3-3-left').click(function(event) {
-    $('#story3-3').hide(800);
-    $('#story4-1').show(800);
+    $('#wet-tunnel-torch').hide(800);
+    $('#bat-room').show(800);
     newPlayer.health = newPlayer.health - 10;
     $('#player-health').text(newPlayer.health);
   });
 
   $('#button4-1-knife').click(function(event) {
-    $('#story4-1').hide(800);
-    $('#story4-3').show(800);
+    $('#bat-room').hide(800);
+    $('#bat-room-knife').show(800);
     newPlayer.health = newPlayer.health - 10;
     $('#player-health').text(newPlayer.health);
   });
 
   $('#button4-1-sling').click(function(event) {
-    $('#story4-1').hide(800);
-    $('#story4-2').show(800);
+    $('#bat-room').hide(800);
+    $('#bat-room-sling').show(800);
   });
 
   $('#button4-2-tunnel').click(function(event) {
-    $('#story4-2').hide(800);
-    $('#story5-1').show(800);
+    $('#bat-room-sling').hide(800);
+    $('#long-tunnel').show(800);
   });
 
   $('#button4-3-sling').click(function(event) {
-    $('#story4-3').hide(800);
-    $('#story4-2').show(800);
+    $('#bat-room-knife').hide(800);
+    $('#bat-room-sling').show(800);
   });
 
   $('#button5-1-apples').click(function(event) {
-    $('#story5-1').hide(800);
-    $('#story5-2').show(800);
+    $('#long-tunnel').hide(800);
+    $('#long-tunnel-end').show(800);
     newPlayer.health = newPlayer.health + 10;
     $('#player-health').text(newPlayer.health);
     newPlayer.removeInventory('Apples');
   });
 
   $('#button5-1-bread').click(function(event) {
-    $('#story5-1').hide(800);
-    $('#story5-2').show(800);
+    $('#long-tunnel').hide(800);
+    $('#long-tunnel-end').show(800);
     newPlayer.health = newPlayer.health + 15;
     $('#player-health').text(newPlayer.health);
     newPlayer.removeInventory('Bread');
