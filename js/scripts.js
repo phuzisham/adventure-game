@@ -23,8 +23,17 @@ Player.prototype.removeInventory = function(item) {
 	  if (this.inventory[i] === item) {
     var x = this.inventory.indexOf(item);
 	  this.inventory.splice(x, 1);
+    this.displayInventory();
     }
   }
+}
+
+Player.prototype.checkForItem = function(item) {
+  for (var i = 0; i < this.inventory.length; i++) {
+    if (this.inventory[i] === item) {
+      return true;
+    }
+  } return false;
 }
 
 $(document).ready(function() {
@@ -66,7 +75,6 @@ $(document).ready(function() {
     $('#story3-2').hide(800);
     $('#story3-3').show(800);
     newPlayer.inventory.push('Apples', 'Bread', 'Sling-Shot', 'Torch');
-    console.log(newPlayer);
     newPlayer.displayInventory();
   });
 
@@ -105,7 +113,6 @@ $(document).ready(function() {
     newPlayer.health = newPlayer.health + 10;
     $('#player-health').text(newPlayer.health);
     newPlayer.removeInventory('Apples');
-    newPlayer.displayInventory();
   });
 
   $('#button5-1-bread').click(function(event) {
@@ -114,7 +121,6 @@ $(document).ready(function() {
     newPlayer.health = newPlayer.health + 15;
     $('#player-health').text(newPlayer.health);
     newPlayer.removeInventory('Bread');
-    newPlayer.displayInventory();
   });
 
 });
