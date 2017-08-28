@@ -28,42 +28,7 @@ button {
   color: #eac67a;
 }
 
-#death1 {
-  display: none;
-}
 
-#wet-tunnel {
-  display: none;
-}
-
-#wet-tunnel-end {
-  display: none;
-}
-
-#cold-room {
-  display: none;
-}
-
-#wet-tunnel-torch {
-  display: none;
-}
-
-#bat-room {
-  display: none;
-}
-
-#bat-room-sling {
-  display: none;
-}
-
-#bat-room-knife {
-  display: none;
-}
-
-#long-tunnel {
-  display: none;
-}
-
-#long-tunnel-end {
+.roomies {
   display: none;
 }
