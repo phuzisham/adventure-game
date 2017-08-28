@@ -12,8 +12,18 @@ function Player() {
 }
 
 Player.prototype.displayInventory = function() {
+  $('#player-inventory').empty();
   for (var i = 0; i < this.inventory.length; i++) {
     $('#player-inventory').append('<li>' + this.inventory[i] + ' </li>');
+  }
+}
+
+Player.prototype.removeInventory = function(item) {
+	for (var i = 0; i <  this.inventory.length; i++) {
+	  if (this.inventory[i] === item) {
+    var x = this.inventory.indexOf(item);
+	  this.inventory.splice(x, 1);
+    }
   }
 }
 
@@ -55,8 +65,9 @@ $(document).ready(function() {
   $('#button3-2-return').click(function(event) {
     $('#story3-2').hide(800);
     $('#story3-3').show(800);
-    newPlayer.inventory = newPlayer.inventory.push('Apples', 'Bread', 'Sling-Shot', 'Torch');
-    $('#player-inventory').text(newPlayer.inventory);
+    newPlayer.inventory.push('Apples', 'Bread', 'Sling-Shot', 'Torch');
+    console.log(newPlayer);
+    newPlayer.displayInventory();
   });
 
   $('#button3-3-left').click(function(event) {
@@ -93,8 +104,8 @@ $(document).ready(function() {
     $('#story5-2').show(800);
     newPlayer.health = newPlayer.health + 10;
     $('#player-health').text(newPlayer.health);
-    newPlayer.health = newPlayer.health + 10;
-    $('#player-health').text(newPlayer.health);
+    newPlayer.removeInventory('Apples');
+    newPlayer.displayInventory();
   });
 
   $('#button5-1-bread').click(function(event) {
@@ -102,13 +113,8 @@ $(document).ready(function() {
     $('#story5-2').show(800);
     newPlayer.health = newPlayer.health + 15;
     $('#player-health').text(newPlayer.health);
+    newPlayer.removeInventory('Bread');
+    newPlayer.displayInventory();
   });
-
-  // $('#button5-1-bread').click(function(event) {
-  //   $('#story5-1').hide(800);
-  //   $('#story5-2').show(800);
-  //   newPlayer.health = newPlayer.health + 15;
-  //   $('#player-health').text(newPlayer.health);
-  // });
 
 });
