@@ -11,10 +11,17 @@ function Player(inventory) {
   this.health = 90;
 }
 
+Player.prototype.displayInventory = function() {
+  for (var i = 0; i < this.inventory.length; i++) {
+    $('#player-inventory').append('<li>' + this.inventory[i] + ' </li>');
+  }
+}
+
 $(document).ready(function() {
-  var playerInventory = 'Knife, Marbles, ';
-  var newPlayer = new Player(playerInventory);
-  $('#player-inventory').text(newPlayer.inventory);
+  var playerInventory = inventory;
+  var newPlayer = new Player(inventory);
+  newPlayer.displayInventory();
+
   $('#player-health').text(newPlayer.health);
 
   $('.try-again').click(function() {
