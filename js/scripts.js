@@ -126,7 +126,35 @@ $(document).ready(function() {
   $('#button5-2-river').click(function(event) {
     $('#long-tunnel-end').hide(800);
     $('#river').show(800);
+  });
 
+  $('#button5-2-stairs').click(function(event) {
+    $('#long-tunnel-end').hide(800);
+    $('#stairs').show(800);
+  });
+
+  $('#return-river').click(function(event) {
+    $('#long-tunnel-end').show(800);
+    $('#stairs').hide(800);
+  });
+
+  $('#feel').click(function(event) {
+    $('#dark-stairs').show(800);
+    $('#stairs').hide(800);
+  });
+
+  $('#knife').click(function(event) {
+    newPlayer.removeInventory('Knife');
+  });
+
+  $('#blind').click(function(event) {
+    $('#light-stairs').show(800);
+    $('#dark-stairs').hide(800);
+  });
+
+  $('#knife-fall').click(function(event) {
+    $('#').show(800);
+    $('#light-stairs').hide(800);
   });
 
   $('#button6-1-search').click(function(event) {
