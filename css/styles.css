@@ -1,0 +1,69 @@
+.jumbotron {
+  background-color: #233237;
+}
+
+body {
+  background-color: #18121e;
+  overflow-y: hidden;
+  color: #1C1829;
+}
+
+#stats {
+  background-color: #984b43;
+  border-style: none;
+  margin-right: 20px;
+  margin-left: -5px;
+  height: 400px;
+}
+
+#story {
+  background-color: #eac67a;
+  border-style: none;
+  margin-right: -20px;
+  height: 400px;
+}
+
+button {
+  background-color: #18121e;
+  color: #eac67a;
+}
+
+#story2-1 {
+  display: none;
+}
+
+#story2-2 {
+  display: none;
+}
+
+#story3-1 {
+  display: none;
+}
+
+#story3-2 {
+  display: none;
+}
+
+#story3-3 {
+  display: none;
+}
+
+#story4-1 {
+  display: none;
+}
+
+#story4-2 {
+  display: none;
+}
+
+#story4-3 {
+  display: none;
+}
+
+#story5-1 {
+  display: none;
+}
+
+#story5-2 {
+  display: none;
+}
