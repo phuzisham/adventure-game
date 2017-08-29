@@ -15,6 +15,11 @@ function Game() {
         {
           text: 'Right Tunnel',
           roomName: 'wet-tunnel',
+        },
+        {
+          text: 'debuggs',
+          roomName: 'Prison Pit',
+          feature: 'hides'
         }
       ]
     },
@@ -213,15 +218,18 @@ function Game() {
       messages: [
         'Following the river you approach a lovely, placid pool.',
         'Across the pool a looming Prison gate beckons.',
-        'Something gleams from within the sand of the shoreline.',
-        'A small rickety boat is anchored here.'
+        'Something gleams from within the swampy muck of the shoreline.',
+        ' A small boat, ingraved "Riki-tee", is anchored here.'
+
       ],
       buttons: [
         {
           text: 'Search The Shoreline',
-          roomName: 'river',
+          roomName: 'searched river',
           addsToInventory: ['Key'],
-          alertMessage: 'You found a key!'
+        //  alertMessage: 'Covered in muck and filth, you\'re search efforts are rewarded with a slurping pop, as you pocket the key from the swampy muck.',
+
+
         },
         {
           text: 'Board a rickety boat',
@@ -229,6 +237,19 @@ function Game() {
         },
       ]
     },
+    // {
+    //   name: 'searched river',
+    //   messages: [
+    //     'Covered in muck and filth, you\'re search efforts are rewarded with a slurping pop, as you pocket the key from the swampy muck.',
+    //     '\"The Riki-Tee\" is anchored here.',
+    //   ],
+    //   buttons: [
+    //     {
+    //       text: 'Board "Riki-Tee" boat',
+    //       roomName: 'boat'
+    //     },
+    //   ]
+    // },
     {
       name: 'boat',
       messages: [
@@ -294,7 +315,9 @@ function Game() {
     {
       name: 'Floating-Dream',
       messages: [
-        'After falling for what feels like an eternity, you notice a light shinning in the distance. The pit in your stomach, and all your human senses are taken over by an otherworldly sense of calm, like floating on the surface of a pool. The light gets brighter as it moves closer, revealing a three legged cat. His skin hangs loosely from his body, and mange has deprived him of fur in many places. The right side of his face is torn up around a large festering scar that runs diagonally across his right eye. His body is translucent and the shimmering blues and purples of the universe wash the color of his fur, like an internet meme.'
+
+        'After falling for what feels like an eternity, you notice a light shinning in the distance. Wind sucked out of you, your stomache a vacuous pit, seeing only darkness, and feeling the cold wind rush against your impending doom.',
+        'All your earthly senses are taken over by an otherworldly calm, like gently floating to the surface of a warm pool. The light gets brighter as it moves closer, revealing a three legged silhouette. His feline form hangs loosely from his bones, and mange has deprived him of fur in many places. The right side of his face is torn up around a large festering scar that runs diagonally across his right eye, stopping just before his whiskers. His body is translucent and the shimmering blues and purples of the universe wash the color of his fur, like an internet meme.'
       ],
       buttons: [
         {
@@ -332,7 +355,7 @@ function Game() {
           text: 'Key',
           roomName: 'Floating-Dream-Cont3',
           removesFromInventory: ['Key'],
-          alertMessage: 'Gods have no use for early things!'
+          alertMessage: ' Gods have no use for early things!'
         },
         {
           text: 'Fancy Feast',
@@ -361,12 +384,27 @@ function Game() {
       name: 'Floating-Dream-Cont4',
       messages: [
         '\"Very well!\"',
-        'With the flick of his stump, Princess fades into the constalations and millions of white mice crawl out of the ether beneth your feet and swarm around your body until the wight of their tinly little bodies pulls you back into the darkness.'
+        'With the flick of his stump, Princess fades into the constellations and millions of white mice crawl out of the ether beneth your feet, swarming around your body until the wight of their numbers pulls you down into the darkness.'
+      ],
+      buttons: [
+        {
+          text: 'Open your eyes',
+          roomName: 'Dream-Wake',
+        },
+      ]
+    },
+    {
+      name: 'Dream-Wake',
+      messages: [
+        '\"Very well!\"',
+        '.'
       ],
       buttons: [
         {
           text: 'Test',
           roomName: 'Next',
+          healthVar : -5
+          addsToInventory: ['Fancy Feast']
         },
       ]
     },
