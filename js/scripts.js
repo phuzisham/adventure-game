@@ -214,7 +214,7 @@ function Game() {
         'Following the river you approach a lovely, placid pool.',
         'Across the pool a looming Prison gate beckons.',
         'Something gleams from within the sand of the shoreline.',
-        'A mall rickety boat is anchored here.'
+        'A small rickety boat is anchored here.'
       ],
       buttons: [
         {
@@ -259,7 +259,9 @@ function Game() {
         },
         {
           text: 'Attack With Knife',
-          roomName: ''
+          roomName: 'prison-duel',
+          alertMessage: 'Stab, stab, stabbing the undead is futile! And then he bit you!',
+          healthVar : -15
         },
       ]
     },
@@ -285,10 +287,89 @@ function Game() {
       buttons: [
         {
           text: 'Continue Falling?',
-          roomName: 'Prison Sewer',
+          roomName: 'Floating-Dream',
         },
       ]
-    }
+    },
+    {
+      name: 'Floating-Dream',
+      messages: [
+        'After falling for what feels like an eternity, you notice a light shinning in the distance. The pit in your stomach, and all your human senses are taken over by an otherworldly sense of calm, like floating on the surface of a pool. The light gets brighter as it moves closer, revealing a three legged cat. His skin hangs loosely from his body, and mange has deprived him of fur in many places. The right side of his face is torn up around a large festering scar that runs diagonally across his right eye. His body is translucent and the shimmering blues and purples of the universe wash the color of his fur, like an internet meme.'
+      ],
+      buttons: [
+        {
+          text: 'What are you?',
+          roomName: 'Floating-Dream-Cont',
+          healthVar : +5
+        },
+      ]
+    },
+    {
+      name: 'Floating-Dream-Cont',
+      messages: [
+        '\"I am Princess.\"'
+      ],
+      buttons: [
+        {
+          text: 'Where have you taken me?',
+          roomName: 'Floating-Dream-Cont2',
+        },
+      ]
+    },
+    {
+      name: 'Floating-Dream-Cont2',
+      messages: [
+        '\"You are in the Flerbosphere. Proverbial catnip of the universe...I will grant you all of your desires and release you from this captivity, but I require an offering first.\"'
+      ],
+      buttons: [
+        {
+          text: 'Marbles',
+          roomName: 'Floating-Dream-Cont3',
+          removesFromInventory: ['Marbles'],
+          alertMessage: 'Too round!'
+        },
+        {
+          text: 'Key',
+          roomName: 'Floating-Dream-Cont3',
+          removesFromInventory: ['Key'],
+          alertMessage: 'Gods have no use for early things!'
+        },
+        {
+          text: 'Fancy Feast',
+          removesFromInventory: ['Fancy Feast'],
+          roomName: 'Floating-Dream-Cont3',
+          removesFromInventory: 'Fancy Feast'
+        },
+      ]
+    },
+    {
+      name: 'Floating-Dream-Cont3',
+      messages: [
+        '\"Oh! a feast most fancy!\"',
+        'Rivulets of spit are flung from Princess as he attrociously devours his fancy feast, you realize the spit has a soothing effect, and your wounds are healed. He must be pleased with you now.',
+        '\"Princess, millions of people are depending on me to save them. will you free me from the Ferbosphere and grant me the power to deliver them to their final resting place?\"',
+        '\"...\"'
+      ],
+      buttons: [
+        {
+          text: 'Ask again!',
+          roomName: 'Floating-Dream-Cont4',
+        },
+      ]
+    },
+    {
+      name: 'Floating-Dream-Cont4',
+      messages: [
+        '\"Very well!\"',
+        'With the flick of his stump, Princess fades into the constalations and millions of white mice crawl out of the ether beneth your feet and swarm around your body until the wight of their tinly little bodies pulls you back into the darkness.'
+      ],
+      buttons: [
+        {
+          text: 'Test',
+          roomName: 'Next',
+        },
+      ]
+    },
   ];
 }
 
