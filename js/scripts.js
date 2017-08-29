@@ -189,22 +189,66 @@ function Game() {
           roomName: 'light-stairs',
           removesFromInventory: 'Knife'
         },
-        {
-          text: 'Continue Blindly',
-          roomName: 'light-stairs'
-        }
       ]
     },
     {
       name: 'light-stairs',
       messages: [
-        'With nothing to see through the darkness and light to indicate the entrance of the staircase, your other senses take over. The music has grown even louder and the smell of wet fir takes hold of your nostrils.',
-        'Then the sense of falling, a sharp pain. a loud snap, then nothing. Only darkness behind your eyelids.'
+        'With nothing to see through the darkness to indicate the entrance of the staircase, your other senses take over. The music has grown even louder and the smell of wet fir takes hold of your nostrils.',
+        'The sense of falling, a sharp pain, a loud snap, then nothing. Only darkness behind your eyelids.'
       ],
       buttons: [
         {
           text: 'Open Your Eyes',
-          roomName: 'TBD'
+          validatesInventoryFor: 'Apples',
+          roomNameFailure: 'tomb-failure',
+          roomNameSuccess: 'tomb-success',
+        }
+      ]
+    },
+    {
+      name: 'tomb-success',
+      messages: [
+        'Spots of sharp, bright light swim in your vision. Your knife lays on the ground just out of reach. A dark figure stands over you.',
+        '"Do I smell apples?"',
+        'As your vision clears, you find yourself gazing up into the dead-eyed grimace of a Shinigami, Lord of Death.'
+        ],
+      buttons: [
+        {
+          text: 'Give Apples',
+          removesFromInventory: 'Apples',
+          roomName: 'tomb-shinigami'
+        }
+      ]
+    },
+    {
+      name: 'tomb-failure',
+      messages: [
+        'Spots of sharp, bright light swim in your vision. Your knife lays on the ground just out of reach. A dark figure stands over you.',
+        '"Do I smell apples?"',
+        'As your vision clears, you find yourself gazing up into the dead-eyed grimace of a Shinigami, Lord of Death.',
+        'The Shinigami begins to laugh, "I do smell apples! After all these decades trapped inside this wretched tomb. I\'d nearly forgot the smell if apples." He floats towards you with a massive claw extended.',
+        'As the Shinigami feasts on the partially digested apples in your stomach, your thoughts turn to the millions whose hopes depend on you, for they will surely perish now.'
+      ],
+      buttons: []
+    },
+    {
+      name: 'tomb-shinigami',
+      messages: [
+        '"Nomnomnom...apples! I love apples! After all these decades trapped inside this wretched tomb, and now I\'m munching on delicious apples!"',
+        '"You showed me a way out of the Tomb and gave me apples. For your kindness, I will fly you out of here. What brought you to this place human?"',
+        'As you tell the Shinigami about the people of your homeland you can sense his dis-intereset. Then you speak the name of the evil priest you were sent to defeat.',
+        'The Shinigami laughs. "It seems we share a common enemy. I will have my revenge and you will help me, human."'
+        ],
+      buttons: [
+        {
+          text: 'Search Room',
+          addsToInventory: ['Key', 'Knife', 'Wand-of-Fire'],
+          alertMessage: 'You found a key, knife, and the Wand-of-Fire!',
+        },
+        {
+          text: 'Go With Shinigami',
+          roomName: 'upper-stairs',
         }
       ]
     },
