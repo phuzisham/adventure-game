@@ -15,6 +15,10 @@ function Game() {
         {
           text: 'Right Tunnel',
           roomName: 'wet-tunnel',
+        },
+        {
+          text: 'debuggs',
+          roomName: 'river',
         }
       ]
     },
@@ -263,7 +267,7 @@ function Game() {
       buttons: [
         {
           text: 'Search The Shoreline',
-          roomName: 'river',
+          roomName: 'searched river',
           addsToInventory: ['Key'],
           alertMessage: 'You found a key!',
           hideButton: 'hideButton'
@@ -377,7 +381,7 @@ function Game() {
           text: 'Key',
           roomName: 'Floating-Dream-Cont3',
           removesFromInventory: ['Key'],
-          alertMessage: 'Gods have no use for early things!'
+          alertMessage: ' Gods have no use for early things!'
         },
         {
           text: 'Fancy Feast',
@@ -406,12 +410,27 @@ function Game() {
       name: 'Floating-Dream-Cont4',
       messages: [
         '\"Very well!\"',
-        'With the flick of his stump, Princess fades into the constalations and millions of white mice crawl out of the ether beneth your feet and swarm around your body until the wight of their tinly little bodies pulls you back into the darkness.'
+        'With the flick of his stump, Princess fades into the constellations and millions of white mice crawl out of the ether beneth your feet, swarming around your body until the wight of their numbers pulls you down into the darkness.'
+      ],
+      buttons: [
+        {
+          text: 'Open your eyes',
+          roomName: 'Dream-Wake',
+        },
+      ]
+    },
+    {
+      name: 'Dream-Wake',
+      messages: [
+        '\"Very well!\"',
+        '.'
       ],
       buttons: [
         {
           text: 'Test',
           roomName: 'Next',
+          healthVar : -5,
+          addsToInventory: ['Fancy Feast']
         },
       ]
     },
