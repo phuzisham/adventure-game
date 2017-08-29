@@ -207,6 +207,87 @@ function Game() {
           roomName: 'TBD'
         }
       ]
+    },
+    {
+      name: 'river',
+      messages: [
+        'Following the river you approach a lovely, placid pool.',
+        'Across the pool a looming Prison gate beckons.',
+        'Something gleams from within the sand of the shoreline.',
+        'A mall rickety boat is anchored here.'
+      ],
+      buttons: [
+        {
+          text: 'Search The Shoreline',
+          roomName: 'river',
+          addsToInventory: ['Key'],
+          alertMessage: 'You found a key!'
+        },
+        {
+          text: 'Board a rickety boat',
+          roomName: 'boat'
+        },
+      ]
+    },
+    {
+      name: 'boat',
+      messages: [
+        'The boat is shabby, but it holds together. You row across the pool and ascend the small embankment to the prison cell gate.'
+      ],
+      buttons: [
+        {
+          text: 'Open Gate',
+          roomName: 'prison-cell',
+        },
+        {
+          text: 'Return',
+          roomName: 'river'
+        },
+      ]
+    },
+    {
+      name: 'prison-cell',
+      messages: [
+        'The door of the prison-cell creaks loudly as you swing it open. You see a pile of dusty old rags in the corner, chains hanging from the ceiling and a chest next to the pile of rags.',
+        'As you walk toward the chest, the rags shudder and begin to rise slowly, forming a body covered in loose pieces of torn cloth and skin with a wide, skeleton grin on it\'s grisely face.',
+        'It lurches forward and claws at you.'
+      ],
+      buttons: [
+        {
+          text: 'Attack With Torch',
+          roomName: 'prison-duel',
+        },
+        {
+          text: 'Attack With Knife',
+          roomName: ''
+        },
+      ]
+    },
+    {
+      name: 'prison-duel',
+      messages: [
+        'The shambling mound of rotten flesh ignites with howling agony. The acrid stench of of burnt, rotting flesh churns your stomach. Composing yourself you\'re able to approach the rusted treasure chest.',
+
+      ],
+      buttons: [
+        {
+          text: 'Search Chest',
+          roomName: 'Prison Pit',
+          addsToInventory: ['Fancy Feast']
+        },
+      ]
+    },
+    {
+      name: 'Prison Pit',
+      messages: [
+        'The floor crumbles beneath you, dank darkness envelops you. Luckily you managed to grab the crystalline orb containing a feast most fancy.',
+      ],
+      buttons: [
+        {
+          text: 'Continue Falling?',
+          roomName: 'Prison Sewer',
+        },
+      ]
     }
   ];
 }
@@ -248,6 +329,10 @@ Game.prototype.goToRoomByButton = function(button) {
   if (button.removesFromInventory) {
     this.getCurrentPlayer().removeInventory(button.removesFromInventory);
     this.getCurrentPlayer().displayInventory();
+  }
+  if (button.alertMessage) {
+    $('.messages').append(button.alertMessage);
+    return;
   }
 
   this.goToRoom(roomToGoTo);
