@@ -160,6 +160,53 @@ function Game() {
           roomName: 'stairs'
         }
       ]
+    },
+    {
+      name: 'stairs',
+      messages: [
+        'Before you take your first step you pause for a moment. Is that the sound of music you hear? You can\'t be sure, because the waterfall is roaring just a few feet away, but your curiosity grows as you cautiously take each step. When you finally reach the top of the stairs your torch immediately goes dark.'
+      ],
+      buttons: [
+        {
+          text: 'Feel Your Way Around',
+          roomName: 'dark-stairs'
+        },
+        {
+          text: 'Return To The River',
+          roomName: 'river'
+        }
+      ]
+    },
+    {
+      name: 'dark-stairs',
+      messages: [
+        'Panic stricken, you run your hands over the smooth walls, searching for the familiar feeling of a cold brass door handle. Nothing.',
+        'You can hear feet shuffling ahead of you, but you\'re not sure how, since you never found your way out of the staircase.'
+      ],
+      buttons: [
+        {
+          text: 'Take Out Your Knife',
+          roomName: 'light-stairs',
+          removesFromInventory: 'Knife'
+        },
+        {
+          text: 'Continue Blindly',
+          roomName: 'light-stairs'
+        }
+      ]
+    },
+    {
+      name: 'light-stairs',
+      messages: [
+        'With nothing to see through the darkness and light to indicate the entrance of the staircase, your other senses take over. The music has grown even louder and the smell of wet fir takes hold of your nostrils.',
+        'Then the sense of falling, a sharp pain. a loud snap, then nothing. Only darkness behind your eyelids.'
+      ],
+      buttons: [
+        {
+          text: 'Open Your Eyes',
+          roomName: 'TBD'
+        }
+      ]
     }
   ];
 }
