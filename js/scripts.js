@@ -189,22 +189,66 @@ function Game() {
           roomName: 'light-stairs',
           removesFromInventory: 'Knife'
         },
-        {
-          text: 'Continue Blindly',
-          roomName: 'light-stairs'
-        }
       ]
     },
     {
       name: 'light-stairs',
       messages: [
-        'With nothing to see through the darkness and light to indicate the entrance of the staircase, your other senses take over. The music has grown even louder and the smell of wet fir takes hold of your nostrils.',
-        'Then the sense of falling, a sharp pain. a loud snap, then nothing. Only darkness behind your eyelids.'
+        'With nothing to see through the darkness to indicate the entrance of the staircase, your other senses take over. The music has grown even louder and the smell of wet fir takes hold of your nostrils.',
+        'The sense of falling, a sharp pain, a loud snap, then nothing. Only darkness behind your eyelids.'
       ],
       buttons: [
         {
           text: 'Open Your Eyes',
-          roomName: 'TBD'
+          validatesInventoryFor: 'Apples',
+          roomNameFailure: 'tomb-failure',
+          roomNameSuccess: 'tomb-success',
+        }
+      ]
+    },
+    {
+      name: 'tomb-success',
+      messages: [
+        'Spots of sharp, bright light swim in your vision. Your knife lays on the ground just out of reach. A dark figure stands over you.',
+        '"Do I smell apples?"',
+        'As your vision clears, you find yourself gazing up into the dead-eyed grimace of a Shinigami, Lord of Death.'
+        ],
+      buttons: [
+        {
+          text: 'Give Apples',
+          removesFromInventory: 'Apples',
+          roomName: 'tomb-shinigami'
+        }
+      ]
+    },
+    {
+      name: 'tomb-failure',
+      messages: [
+        'Spots of sharp, bright light swim in your vision. Your knife lays on the ground just out of reach. A dark figure stands over you.',
+        '"Do I smell apples?"',
+        'As your vision clears, you find yourself gazing up into the dead-eyed grimace of a Shinigami, Lord of Death.',
+        'The Shinigami begins to laugh, "I do smell apples! After all these decades trapped inside this wretched tomb. I\'d nearly forgot the smell if apples." He floats towards you with a massive claw extended.',
+        'As the Shinigami feasts on the partially digested apples in your stomach, your thoughts turn to the millions whose hopes depend on you, for they will surely perish now.'
+      ],
+      buttons: []
+    },
+    {
+      name: 'tomb-shinigami',
+      messages: [
+        '"Nomnomnom...apples! I love apples! After all these decades trapped inside this wretched tomb, and now I\'m munching on delicious apples!"',
+        '"You showed me a way out of the Tomb and gave me apples. For your kindness, I will fly you out of here. What brought you to this place human?"',
+        'As you tell the Shinigami about the people of your homeland you can sense his dis-intereset. Then you speak the name of the evil priest you were sent to defeat.',
+        'The Shinigami laughs. "It seems we share a common enemy. I will have my revenge and you will help me, human."'
+        ],
+      buttons: [
+        {
+          text: 'Search Room',
+          addsToInventory: ['Key', 'Knife', 'Wand-of-Fire'],
+          alertMessage: 'You found a key, knife, and the Wand-of-Fire!',
+        },
+        {
+          text: 'Go With Shinigami',
+          roomName: 'upper-stairs',
         }
       ]
     },
@@ -214,14 +258,15 @@ function Game() {
         'Following the river you approach a lovely, placid pool.',
         'Across the pool a looming Prison gate beckons.',
         'Something gleams from within the sand of the shoreline.',
-        'A small rickety boat is anchored here.'
+        'A small boat engraved with, "Riki-tee" is anchored here.'
       ],
       buttons: [
         {
           text: 'Search The Shoreline',
           roomName: 'river',
           addsToInventory: ['Key'],
-          alertMessage: 'You found a key!'
+          alertMessage: 'You found a key!',
+          hideButton: 'hideButton'
         },
         {
           text: 'Board a rickety boat',
@@ -249,7 +294,7 @@ function Game() {
       name: 'prison-cell',
       messages: [
         'The door of the prison-cell creaks loudly as you swing it open. You see a pile of dusty old rags in the corner, chains hanging from the ceiling and a chest next to the pile of rags.',
-        'As you walk toward the chest, the rags shudder and begin to rise slowly, forming a body covered in loose pieces of torn cloth and skin with a wide, skeleton grin on it\'s grisely face.',
+        'As you walk toward the chest, the rags shudder and begin to rise slowly. It forms a body covered in loose pieces of torn cloth and skin with a wide, skeleton grin on it\'s grizzly face.',
         'It lurches forward and claws at you.'
       ],
       buttons: [
@@ -268,7 +313,7 @@ function Game() {
     {
       name: 'prison-duel',
       messages: [
-        'The shambling mound of rotten flesh ignites with howling agony. The acrid stench of of burnt, rotting flesh churns your stomach. Composing yourself you\'re able to approach the rusted treasure chest.',
+        'The shambling mound of rotten flesh ignites with howling agony. The acrid stench of burnt, rotting flesh churns your stomach. Composing yourself you\'re able to approach the rusted treasure chest.',
 
       ],
       buttons: [
@@ -282,7 +327,7 @@ function Game() {
     {
       name: 'Prison Pit',
       messages: [
-        'The floor crumbles beneath you, dank darkness envelops you. Luckily you managed to grab the crystalline orb containing a feast most fancy.',
+        'The floor crumbles beneath you, dank darkness envelops you. Luckily, you managed to grab the crystalline orb containing a feast most fancy.',
       ],
       buttons: [
         {
@@ -294,7 +339,7 @@ function Game() {
     {
       name: 'Floating-Dream',
       messages: [
-        'After falling for what feels like an eternity, you notice a light shinning in the distance. The pit in your stomach, and all your human senses are taken over by an otherworldly sense of calm, like floating on the surface of a pool. The light gets brighter as it moves closer, revealing a three legged cat. His skin hangs loosely from his body, and mange has deprived him of fur in many places. The right side of his face is torn up around a large festering scar that runs diagonally across his right eye. His body is translucent and the shimmering blues and purples of the universe wash the color of his fur, like an internet meme.'
+        'After falling for what feels like an eternity, you notice a light shining in the distance. The pit in your stomach, and all your human senses are taken over by an otherworldly sense of calm, like floating on the surface of a pool. The light gets brighter as it moves closer, revealing a three legged cat. His skin hangs loosely from his body, and mange has deprived him of fur in many places. The right side of his face is torn up around a large festering scar that runs diagonally across his right eye. His body is translucent and the shimmering blues and purples of the universe wash the color of his fur, like an internet meme.'
       ],
       buttons: [
         {
@@ -411,6 +456,12 @@ Game.prototype.goToRoomByButton = function(button) {
     this.getCurrentPlayer().removeInventory(button.removesFromInventory);
     this.getCurrentPlayer().displayInventory();
   }
+
+  if (button.hideButton) {
+    console.log('buttonbottobnhodfi');
+    $('#'+button.hideButton).hide(800);
+  }
+
   if (button.alertMessage) {
     $('.messages').append(button.alertMessage);
     return;
@@ -439,7 +490,7 @@ Game.prototype.goToRoom = function(roomName) {
   if (room.buttons.length) {
     window.$('#story .button-group').hide(800, function() {
       window.$('#story .button-group')[0].innerHTML = room.buttons.reduce(function(memo, button) {
-        return memo + "<button class='btn' data-button='"+ JSON.stringify(button) +"'>" + button.text + "</button>";
+        return memo + "<button id=" + button.hideButton + " class='btn' data-button='"+ JSON.stringify(button) +"'>" + button.text + "</button>";
       }, '');
       window.$('#story .button-group').show(800);
     });
