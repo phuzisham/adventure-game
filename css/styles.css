@@ -28,6 +28,14 @@ button {
   color: #eac67a;
 }
 
+#story .btn {
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.try-again {
+  display: none;
+}
 
 .roomies {
   display: none;
