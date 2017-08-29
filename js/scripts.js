@@ -6,6 +6,21 @@ function wait(ms){
   }
 }
 
+function Game() {
+  this.currentPlayer = null;
+}
+
+Game.prototype.getCurrentPlayer = function() {
+  return this.currentPlayer;
+};
+
+Game.prototype.start = function() {
+  var newPlayer = new Player();
+  newPlayer.displayInventory();
+  newPlayer.updateHealth();
+  this.currentPlayer = newPlayer;
+};
+
 function Player() {
   this.inventory = ['Knife', 'Marbles'];
   this.health = 90;
@@ -16,7 +31,7 @@ Player.prototype.displayInventory = function() {
   for (var i = 0; i < this.inventory.length; i++) {
     $('#player-inventory').append('<li>' + this.inventory[i] + ' </li>');
   }
-}
+};
 
 Player.prototype.removeInventory = function(item) {
 	for (var i = 0; i <  this.inventory.length; i++) {
@@ -26,7 +41,7 @@ Player.prototype.removeInventory = function(item) {
     this.displayInventory();
     }
   }
-}
+};
 
 Player.prototype.checkForItem = function(item) {
   for (var i = 0; i < this.inventory.length; i++) {
@@ -34,14 +49,29 @@ Player.prototype.checkForItem = function(item) {
       return true;
     }
   } return false;
+};
+
+Player.prototype.changeHealth = function(damage) {
+  this.health += damage;
+  this.updateHealth();
+};
+
+Player.prototype.updateHealth = function() {
+  $('#player-health').text(this.health);
+};
+
+function handleDocumentReady() {
+  prepareGame();
+  prepareClickHandlers();
+  window.game.start();
 }
 
-$(document).ready(function() {
-  var newPlayer = new Player();
-  newPlayer.displayInventory();
+function prepareGame() {
+  var game = new Game();
+  window.game = game;
+}
 
-  $('#player-health').text(newPlayer.health);
-
+function prepareClickHandlers() {
   $('.try-again').click(function() {
     location.reload();
   });
@@ -74,22 +104,20 @@ $(document).ready(function() {
   $('#button3-2-return').click(function(event) {
     $('#cold-room').hide(800);
     $('#wet-tunnel-torch').show(800);
-    newPlayer.inventory.push('Apples', 'Bread', 'Sling-Shot', 'Torch');
-    newPlayer.displayInventory();
+    window.game.getCurrentPlayer().inventory.push('Apples', 'Bread', 'Sling-Shot', 'Torch');
+    window.game.getCurrentPlayer().displayInventory();
   });
 
   $('#button3-3-left').click(function(event) {
     $('#wet-tunnel-torch').hide(800);
     $('#bat-room').show(800);
-    newPlayer.health = newPlayer.health - 10;
-    $('#player-health').text(newPlayer.health);
+    window.game.getCurrentPlayer().changeHealth(-10);
   });
 
   $('#button4-1-knife').click(function(event) {
     $('#bat-room').hide(800);
     $('#bat-room-knife').show(800);
-    newPlayer.health = newPlayer.health - 10;
-    $('#player-health').text(newPlayer.health);
+    window.game.getCurrentPlayer().changeHealth(-10);
   });
 
   $('#button4-1-sling').click(function(event) {
@@ -110,17 +138,15 @@ $(document).ready(function() {
   $('#button5-1-apples').click(function(event) {
     $('#long-tunnel').hide(800);
     $('#long-tunnel-end').show(800);
-    newPlayer.health = newPlayer.health + 10;
-    $('#player-health').text(newPlayer.health);
-    newPlayer.removeInventory('Apples');
+    window.game.getCurrentPlayer().changeHealth(10);
+    window.game.getCurrentPlayer().removeInventory('Apples');
   });
 
   $('#button5-1-bread').click(function(event) {
     $('#long-tunnel').hide(800);
     $('#long-tunnel-end').show(800);
-    newPlayer.health = newPlayer.health + 15;
-    $('#player-health').text(newPlayer.health);
-    newPlayer.removeInventory('Bread');
+    window.game.getCurrentPlayer().changeHealth(15);
+    window.game.getCurrentPlayer().removeInventory('Bread');
   });
 
   $('#button5-2-river').click(function(event) {
@@ -144,7 +170,7 @@ $(document).ready(function() {
   });
 
   $('#knife').click(function(event) {
-    newPlayer.removeInventory('Knife');
+    window.game.getCurrentPlayer().removeInventory('Knife');
   });
 
   $('#blind').click(function(event) {
@@ -158,8 +184,8 @@ $(document).ready(function() {
   });
 
   $('#button6-1-search').click(function(event) {
-    newPlayer.inventory.push('Key');
-    newPlayer.displayInventory();
+    window.game.getCurrentPlayer().inventory.push('Key');
+    window.game.getCurrentPlayer().displayInventory();
     $('#river').append("You found a Key!");
   });
 
@@ -169,7 +195,7 @@ $(document).ready(function() {
   });
 
   $('#boat-open').click(function(event) {
-    if (newPlayer.checkForItem("Key")){
+    if (window.game.getCurrentPlayer().checkForItem("Key")){
       $('#boat').hide(800);
       $('#prison-cell').show(800);
     } else {
@@ -177,12 +203,11 @@ $(document).ready(function() {
       $('#boat').hide(800);
       $('#river').show(800);
     }
-
   });
 
   $('#prison-cell-return').click(function(event) {
-    newPlayer.inventory = newPlayer.inventory.push('Key');
+    window.game.getCurrentPlayer().inventory = window.game.getCurrentPlayer().inventory.push('Key');
   });
+}
 
-
-});
+$(document).ready(handleDocumentReady);
