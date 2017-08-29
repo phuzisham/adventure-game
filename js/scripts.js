@@ -1,11 +1,3 @@
-function wait(ms){
-   var start = new Date().getTime();
-   var end = start;
-   while(end < start + ms) {
-     end = new Date().getTime();
-  }
-}
-
 function Game() {
   this.currentPlayer = null;
   this.rooms = [
@@ -64,6 +56,32 @@ function Game() {
       ]
     },
     {
+      name: 'cold-room',
+      messages: [
+        'You walk into a cold room with a torch burning on the wall. Your see a table with a sling-shot, two apples, and half a loaf of bread on it. You grab these items and stow them.'
+      ],
+      buttons: [
+        {
+          text: 'Return To Corridor',
+          roomName: 'wet-tunnel-torch',
+          addsToInventory: ['Apples', 'Bread', 'Sling-Shot', 'Torch'],
+        }
+      ]
+    },
+    {
+      name: 'wet-tunnel-torch',
+      messages: [
+        'Now that you have the torch you can continue on your journey.'
+      ],
+      buttons: [
+        {
+          text: 'Left Door',
+          roomName: 'bat-room',
+          healthVar: -10
+        }
+      ]
+    },
+    {
       name: 'bat-room',
       messages: [
         'You cautiously walk into the room with the torch held in front of you and are greeted with the sight of a giant ugly bat. It screeches loudly and dives at you, biting your face. You take 10 damage.',
@@ -75,20 +93,71 @@ function Game() {
         },
         {
           text: 'Attack With Knife',
-          roomName: 'bat-room-knife'
+          roomName: 'bat-room-knife',
+          healthVar: -10
         }
       ]
     },
     {
-      name: 'cold-room',
+      name: 'bat-room-sling',
       messages: [
-        'You walk into a cold room with a torch burning on the wall. Your see a table with a sling-shot, two apples, and half a loaf of bread on it. You grab these items and stow them.'
+        'You load a marble into your sling-shot and let it loose, striking the bat square between the eyes. It falls to the ground in a heap.',
+        'You look around the room and notice the opening of a tunnel on the opposite side.'
       ],
       buttons: [
         {
-          text: 'Return To Corridor',
-          roomName: 'wet-tunnel-torch',
-          addsToInventory: ['Apples', 'Bread', 'Sling-Shot', 'Torch'],
+          text: 'Enter Tunnel',
+          roomName: 'long-tunnel'
+        }
+      ]
+    },
+    {
+      name: 'bat-room-knife',
+      messages: [
+        'You strike with the knife missing the bat. It deals you 10 more damage.'
+      ],
+      buttons: [
+        {
+          text: 'Attack With Sling-Shot',
+          roomName: 'bat-room-sling'
+        }
+      ]
+    },
+    {
+      name: 'long-tunnel',
+      messages: [
+        'This tunnel is longer than the ones before. As you walk you notice it has smooth uniform sides. You continue in an uninterupted straight line for many hours.',
+        'Your journey has left you feeling tired and weak.'
+      ],
+      buttons: [
+        {
+          text: 'Eat Apples',
+          roomName: 'long-tunnel-end',
+          healthVar: 10,
+          removesFromInventory: 'Apples'
+        },
+        {
+          text: 'Eat Bread',
+          roomName: 'long-tunnel-end',
+          healthVar: 15,
+          removesFromInventory: 'Bread'
+        }
+      ]
+    },
+    {
+      name: 'long-tunnel-end',
+      messages: [
+        'Your health has been replenished!',
+        'You exit the long tunnel into a great cavern with a waterfall flowing into a small river. You see a staircase carved into the cliffside leading to the top of the waterfall.'
+      ],
+      buttons: [
+        {
+          text: 'Follow River',
+          roomName: 'river'
+        },
+        {
+          text: 'Climb Stairs',
+          roomName: 'stairs'
         }
       ]
     }
@@ -125,6 +194,15 @@ Game.prototype.goToRoomByButton = function(button) {
     this.getCurrentPlayer().displayInventory();
   }
 
+  if (button.healthVar) {
+    this.getCurrentPlayer().changeHealth(button.healthVar);
+  }
+
+  if (button.removesFromInventory) {
+    this.getCurrentPlayer().removeInventory(button.removesFromInventory);
+    this.getCurrentPlayer().displayInventory();
+  }
+
   this.goToRoom(roomToGoTo);
 };
 
@@ -154,8 +232,8 @@ Game.prototype.goToRoom = function(roomName) {
     });
 
   } else {
-    window.$('.button-group').empty();
-    window.$('.try-again').show();
+    window.$('.button-group').empty(800);
+    window.$('.try-again').show(800);
   }
 };
 
@@ -214,147 +292,14 @@ function prepareClickHandlers() {
     location.reload();
   });
 
-$('#story .button-group').click(function(event) {
-  var button = event.target;
-  var buttonObj = button.getAttribute('data-button');
+  $('#story .button-group').click(function(event) {
+    var button = event.target;
+    var buttonObj = button.getAttribute('data-button');
 
-  if(buttonObj) {
-    window.game.goToRoomByButton(JSON.parse(buttonObj));
-  }
-});
-
-  // $('#button1-left').click(function(event) {
-  //   $('#entrance').hide(800);
-  //   $('#death1').show(800);
-  // });
-  //
-  // $('#button1-right').click(function(event) {
-  //   $('#entrance').hide(800);
-  //   $('#wet-tunnel').show(800);
-  // });
-  //
-  // $('#button2-2-left').click(function(event) {
-  //   $('#wet-tunnel').hide(800);
-  //   $('#wet-tunnel-end').show(800);
-  // });
-  //
-  // $('#button2-2-right').click(function(event) {
-  //   $('#wet-tunnel').hide(800);
-  //   $('#cold-room').show(800);
-  // });
-  //
-  // $('#button3-1-right').click(function(event) {
-  //   $('#wet-tunnel-end').hide(800);
-  //   $('#cold-room').show(800);
-  // });
-  //
-  // $('#button3-2-return').click(function(event) {
-  //   $('#cold-room').hide(800);
-  //   $('#wet-tunnel-torch').show(800);
-  //   window.game.getCurrentPlayer().inventory.push('Apples', 'Bread', 'Sling-Shot', 'Torch');
-  //   window.game.getCurrentPlayer().displayInventory();
-  // });
-  //
-  // $('#button3-3-left').click(function(event) {
-  //   $('#wet-tunnel-torch').hide(800);
-  //   $('#bat-room').show(800);
-  //   window.game.getCurrentPlayer().changeHealth(-10);
-  // });
-  //
-  // $('#button4-1-knife').click(function(event) {
-  //   $('#bat-room').hide(800);
-  //   $('#bat-room-knife').show(800);
-  //   window.game.getCurrentPlayer().changeHealth(-10);
-  // });
-  //
-  // $('#button4-1-sling').click(function(event) {
-  //   $('#bat-room').hide(800);
-  //   $('#bat-room-sling').show(800);
-  // });
-  //
-  // $('#button4-2-tunnel').click(function(event) {
-  //   $('#bat-room-sling').hide(800);
-  //   $('#long-tunnel').show(800);
-  // });
-  //
-  // $('#button4-3-sling').click(function(event) {
-  //   $('#bat-room-knife').hide(800);
-  //   $('#bat-room-sling').show(800);
-  // });
-  //
-  // $('#button5-1-apples').click(function(event) {
-  //   $('#long-tunnel').hide(800);
-  //   $('#long-tunnel-end').show(800);
-  //   window.game.getCurrentPlayer().changeHealth(10);
-  //   window.game.getCurrentPlayer().removeInventory('Apples');
-  // });
-  //
-  // $('#button5-1-bread').click(function(event) {
-  //   $('#long-tunnel').hide(800);
-  //   $('#long-tunnel-end').show(800);
-  //   window.game.getCurrentPlayer().changeHealth(15);
-  //   window.game.getCurrentPlayer().removeInventory('Bread');
-  // });
-  //
-  // $('#button5-2-river').click(function(event) {
-  //   $('#long-tunnel-end').hide(800);
-  //   $('#river').show(800);
-  // });
-  //
-  // $('#button5-2-stairs').click(function(event) {
-  //   $('#long-tunnel-end').hide(800);
-  //   $('#stairs').show(800);
-  // });
-  //
-  // $('#return-river').click(function(event) {
-  //   $('#long-tunnel-end').show(800);
-  //   $('#stairs').hide(800);
-  // });
-  //
-  // $('#feel').click(function(event) {
-  //   $('#dark-stairs').show(800);
-  //   $('#stairs').hide(800);
-  // });
-  //
-  // $('#knife').click(function(event) {
-  //   window.game.getCurrentPlayer().removeInventory('Knife');
-  // });
-  //
-  // $('#blind').click(function(event) {
-  //   $('#light-stairs').show(800);
-  //   $('#dark-stairs').hide(800);
-  // });
-  //
-  // $('#knife-fall').click(function(event) {
-  //   $('#').show(800);
-  //   $('#light-stairs').hide(800);
-  // });
-  //
-  // $('#button6-1-search').click(function(event) {
-  //   window.game.getCurrentPlayer().inventory.push('Key');
-  //   window.game.getCurrentPlayer().displayInventory();
-  //   $('#river').append("You found a Key!");
-  // });
-  //
-  // $('#button6-1-boat').click(function(event) {
-  //   $('#river').hide(800);
-  //   $('#boat').show(800);
-  // });
-  //
-  // $('#boat-open').click(function(event) {
-  //   if (window.game.getCurrentPlayer().checkForItem("Key")){
-  //     $('#boat').hide(800);
-  //     $('#prison-cell').show(800);
-  //   } else {
-  //     alert("You need a key to enter the prison cell.");
-  //     $('#boat').hide(800);
-  //     $('#river').show(800);
-  //   }
-  // });
-  //
-  // $('#prison-cell-return').click(function(event) {
-  //   window.game.getCurrentPlayer().inventory = window.game.getCurrentPlayer().inventory.push('Key');
-  // });
+    if(buttonObj) {
+      window.game.goToRoomByButton(JSON.parse(buttonObj));
+    }
+  });
 }
 
 $(document).ready(handleDocumentReady);
