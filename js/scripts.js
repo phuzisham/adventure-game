@@ -78,7 +78,7 @@ function Game() {
           ['Bread', 'a prison meal fit for vagabonds'],
           ['Sling Shot', ' A great way to put an eye out'],
           ['Torch', 'Get lit!']],
-          alertMessage: 'Appples, Bread, a Sling Shot, and a Torch were added to your inventory.',
+          alertMessage: 'Apples, Bread, a Sling Shot, and a Torch were added to your inventory.',
           hideButton: 'hideButton'
         }
       ]
@@ -577,7 +577,7 @@ function Game() {
           text: 'Skeleton Key',
           roomName: 'Floating-Dream-Cont3',
           removesFromInventory: ['Skeleton Key'],
-          alertMessage: 'Gods have no use for earthly things!'
+          alertMessage: 'Gods have no use for earthly things!',
           hideButton: 'hideButton'
         },
         {
@@ -806,4 +806,7 @@ function prepareClickHandlers() {
   });
 }
 
-$(document).ready(handleDocumentReady);
+$(document).ready(function() {
+  handleDocumentReady();
+  $('[data-toggle="tooltip"]');
+});
