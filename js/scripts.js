@@ -18,7 +18,7 @@ function Game() {
         },
         {
           text: 'debuggs',
-          roomName: 'cold-room',
+          roomName: 'tomb-shinigami',
         }
       ]
     },
@@ -280,7 +280,7 @@ function Game() {
       buttons: [
         {
           text: 'Search Room',
-          addsToInventory: ['Key', 'Knife', 'Wand-of-Fire'],
+          addsToInventory: [['Key', 'A regular old key'], [ 'Knife', 'aim the pointy end at an enemy, and thrust'], ['Wand-of-Fire', 'Aveda-kedava and poof!']],
           alertMessage: 'You found a key, knife, and the Wand-of-Fire!',
           hideButton: 'hideButton'
         },
@@ -445,7 +445,7 @@ function Game() {
         {
           text: 'Search The Shoreline',
           roomName: 'searched river',
-          addsToInventory: ['Skeleton Key'],
+          addsToInventory: [['Skeleton Key', 'Key made of real bone!']],
           alertMessage: 'You found a key!',
           hideButton: 'hideButton'
         },
@@ -514,7 +514,7 @@ function Game() {
       buttons: [
         {
           text: 'Search Chest',
-          addsToInventory: ['Fancy Feast'],
+          addsToInventory: [['Fancy Feast' , 'A Crystalline orb filled with ground fish chunks']],
           alertMessage: 'You managed to grab a crystalline orb containing a feast most fancy.',
           hideButton: 'hideButton'
         },
@@ -567,12 +567,12 @@ function Game() {
         '\"You are in the Flerbosphere. Proverbial catnip of the universe...I will grant you all of your desires and release you from this captivity, but I require an offering first.\"'
       ],
       buttons: [
-        // {
-        //   text: 'Marbles',
-        //   roomName: 'Floating-Dream-Cont3',
-        //   removesFromInventory: ['Marbles'],
-        //   alertMessage: 'Too round!'
-        // },
+        {
+          text: 'Marbles',
+          roomName: 'Floating-Dream-Cont3',
+          removesFromInventory: ['Marbles'],
+          alertMessage: 'Too round!'
+        },
         {
           text: 'Skeleton Key',
           roomName: 'Floating-Dream-Cont3',
