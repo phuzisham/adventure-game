@@ -64,13 +64,17 @@ function Game() {
     {
       name: 'cold-room',
       messages: [
-        'You walk into a cold room with a torch burning on the wall. Your see a table with a sling-shot, two apples, and half a loaf of bread on it. You grab these items and stow them.'
+        'You walk into a cold room with a torch burning on the wall. Your see a table with a sling-shot, two apples, and half a loaf of bread on it.'
       ],
       buttons: [
         {
           text: 'Return To Corridor',
           roomName: 'wet-tunnel-torch',
+        },
+        {
+          text: 'Take Items',
           addsToInventory: ['Apples', 'Bread', 'Sling-Shot', 'Torch'],
+          alertMessage: 'Appples, Bread, a Sling-Shot, and a Torch were added to your inventory.'
         }
       ]
     },
@@ -137,13 +141,13 @@ function Game() {
       ],
       buttons: [
         {
-          text: 'Eat Apples',
+          text: 'Eat Apples For 10 Health',
           roomName: 'long-tunnel-end',
           healthVar: 10,
           removesFromInventory: 'Apples'
         },
         {
-          text: 'Eat Bread',
+          text: 'Eat Bread For 15 Health',
           roomName: 'long-tunnel-end',
           healthVar: 15,
           removesFromInventory: 'Bread'
@@ -418,7 +422,7 @@ function Game() {
         {
           text: 'Search The Shoreline',
           roomName: 'searched river',
-          addsToInventory: ['Key'],
+          addsToInventory: ['Skeleton Key'],
           alertMessage: 'You found a key!',
           hideButton: 'hideButton'
         },
@@ -437,11 +441,26 @@ function Game() {
         {
           text: 'Open Gate',
           roomName: 'prison-cell',
+          validatesInventoryFor: 'Skeleton Key',
+          roomNameFailure: 'open-gate-failure',
+          roomNameSuccess: 'prison-cell'
         },
         {
           text: 'Return',
           roomName: 'river'
         },
+      ]
+    },
+    {
+      name: 'open-gate-failure',
+      messages: [
+        'You need a key to open this door.'
+      ],
+      buttons: [
+        {
+          text: 'Return To River',
+          roomName: 'river'
+        }
       ]
     },
     {
@@ -468,20 +487,25 @@ function Game() {
       name: 'prison-duel',
       messages: [
         'The shambling mound of rotten flesh ignites with howling agony. The acrid stench of burnt, rotting flesh churns your stomach. Composing yourself you\'re able to approach the rusted treasure chest.',
-
       ],
       buttons: [
         {
           text: 'Search Chest',
           roomName: 'Prison Pit',
-          addsToInventory: ['Fancy Feast']
+          addsToInventory: ['Fancy Feast'],
+          alertMessage: 'You managed to grab a crystalline orb containing a feast most fancy.',
+          hideButton: 'hideButton'
         },
+        {
+          text: 'Continue',
+          roomName: 'Prison Pit',
+        }
       ]
     },
     {
       name: 'Prison Pit',
       messages: [
-        'The floor crumbles beneath you, dank darkness envelops you. Luckily, you managed to grab the crystalline orb containing a feast most fancy.',
+        'The floor crumbles beneath you, dank darkness envelops you.',
       ],
       buttons: [
         {
@@ -528,18 +552,29 @@ function Game() {
           alertMessage: 'Too round!'
         },
         {
-          text: 'Key',
+          text: 'Skeleton Key',
           roomName: 'Floating-Dream-Cont3',
-          removesFromInventory: ['Key'],
-          alertMessage: ' Gods have no use for early things!'
+          removesFromInventory: ['Skeleton Key'],
+          alertMessage: 'Gods have no use for earthly things!'
         },
         {
           text: 'Fancy Feast',
+          validatesInventoryFor: 'Fancy Feast',
           removesFromInventory: ['Fancy Feast'],
-          roomName: 'Floating-Dream-Cont3',
-          removesFromInventory: 'Fancy Feast'
+          roomNameSuccess: 'Floating-Dream-Cont3',
+          roomNameFailure: 'cat-eats-you'
+
         },
       ]
+    },
+    {
+      name: 'cat-eats-you',
+      messages: [
+        'With no Fancy-Feast to offer, Princess turns his eye upon you. You don\'t dare move, you can\'t.',
+        'It could be fear that\'s immobilized you, or it could be Princess, you\'re not sure.',
+        'In a moment it doesn\'t matter. An immense pain ruptures from your belly and crashes into the back of your throat. You can taste blood. The knife falls from your hands as you crumple over in agonizing pain, then silence, like a fetus in the cold dark womb of space.'
+      ],
+      buttons: []
     },
     {
       name: 'Floating-Dream-Cont3',
