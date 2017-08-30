@@ -18,7 +18,7 @@ function Game() {
         },
         {
           text: 'debuggs',
-          roomName: 'river',
+          roomName: 'temple-battle',
         }
       ]
     },
@@ -249,11 +249,141 @@ function Game() {
           text: 'Search Room',
           addsToInventory: ['Key', 'Knife', 'Wand-of-Fire'],
           alertMessage: 'You found a key, knife, and the Wand-of-Fire!',
+          hideButton: 'hideButton'
         },
         {
           text: 'Go With Shinigami',
-          roomName: 'upper-stairs',
+          roomName: 'temple-entrance',
         }
+      ]
+    },
+    {
+      name: 'temple-entrance',
+      messages: [
+        'Less than an hour later, you arrive at the temple entrance of Flerbania. The Shinigami unceremoniously dumps you on the ground.',
+        'Suddenly, a swirling purple portal opens up in front of you and the person you see stepping out makes your stomach drop.',
+        '"What is this?" Booms the Shinigami.',
+        'The person before you is not a reflection, it\'s...YOU!',
+        'You watch yourself reach for his knife and you grin. Not knowing where he came from or how, just knowing that you have the upper hand. You pull the Wand-of-Fire from your bag. A moment later nothing but ash lies at your feet. The Shinigami laughs.'
+        ],
+      buttons: [
+        {
+          text: 'Continue',
+          roomName: 'temple-entrance2'
+        }
+      ]
+    },
+    {
+      name: 'temple-entrance2',
+      messages: [
+        'It doesn\'t feel good to watch your self die. But it\'s not surprising that your quest spans multiple dimensions. The fate of millions rests in your hands. This was foretold. You know you are close to the end now.',
+        'The Shinigami seems pleased at least. Hopefully he proves himself useful in the battle to come.',
+        ],
+      buttons: [
+        {
+          text: 'Enter Temple',
+          roomName: 'temple'
+        }
+      ]
+    },
+    {
+      name: 'temple',
+      messages: [
+        'An old man is hunched over the altar. He senses your presence but makes no perceptible movements.'
+        ],
+      buttons: [
+        {
+          text: 'Speak To Priest',
+          roomName: 'temple-conversation'
+        },
+        {
+          text: 'Attack!!!',
+          roomName: 'temple-battle'
+        }
+      ]
+    },
+    {
+      name: 'temple-conversation',
+      messages: [
+        '"You know why I\'m here, Priest! Hand over the sacred Flerbian texts!"',
+        '"And what is the Shinigami doing here?"',
+        '"To eat your flesh and apples old man."',
+        '"You will never get the texts or my apples!"'
+        ],
+      buttons: [
+        {
+          text: 'Attack!!!',
+          roomName: 'temple-battle',
+          healthVar: -40
+        }
+      ]
+    },
+    {
+      name: 'temple-battle',
+      messages: [
+        'As you ready your weapon a burst of white light blast through the rood screen (used to divide the chancel from the navel) tearing through the Shinigami leaving nothing left.',
+        'You narrowly escape but are deeply wounded.',
+        'You take 40 damage.'
+        ],
+      buttons: [
+        {
+          text: 'Attack With Sling-Shot!!!',
+          roomName: 'temple-battle-sling'
+        },
+        {
+          text: 'Attack With Knife!!!',
+          roomName: 'temple-battle-knife'
+        },
+        {
+          text: 'Attack With Wand-of-Fire!!!',
+          roomName: 'temple-battle-fire'
+        }
+      ]
+    },
+    {
+      name: 'temple-battle-sling',
+      messages: [
+        'You loose a marble from your Sling-Shot, striking the priest in the eye. He cries out in rage and agony, gripping his face. Seizing the moment, you dash to the altar and snatch the texts.',
+        ],
+      buttons: [
+        {
+          text: 'Escape With The Texts!!!',
+          roomName: 'win-screen'
+        },
+      ]
+    },
+    {
+      name: 'temple-battle-knife',
+      messages: [
+        'You throw the knife at the Priest, striking him in the heart. He slumps to the floor.',
+        'You walk triumphantly to the altar and pickup the long-lost texts.'
+        ],
+      buttons: [
+        {
+          text: 'Leave With The Texts',
+          roomName: 'win-screen'
+        },
+      ]
+    },
+    {
+      name: 'temple-battle-fire',
+      messages: [
+        'You flick the Wand-of-Fire and a stream of flames engulfs the altar, burning it and everything around to ashes.',
+        'You\'ve realized your mistake too late. The sacred texts are gone. You have failed. In your grief you take your own life. The people of your homeland will surely perish now.'
+      ],
+      buttons: []
+    },
+    {
+      name: 'win-screen',
+      messages: [
+        'At last, the sacred Flerbian Texts are yours! Now you can read the words of the Flerbinomicon out loud to raise a mindless undead army. Finally, you can bring the people of your homeland back to the living world to conquer all!',
+        'The people of earth shall know no peace in their few remaining years. Soon the surface will be transformed and evil will rule supreme!'
+      ],
+      buttons: [
+        {
+          text: 'Try Again',
+          roomName: 'loser-screen'
+        },
       ]
     },
     {
