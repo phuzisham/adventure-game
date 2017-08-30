@@ -723,14 +723,14 @@ Game.prototype.goToRoom = function(roomName) {
 };
 
 function Player() {
-  this.inventory = ['Knife', 'Marbles'];
+  this.inventory = [['Knife', 'A rusty knife.'], ['Marbles', 'Billy\'s lucky bag of marbles.']];
   this.health = 90;
 }
 
 Player.prototype.displayInventory = function() {
   $('#player-inventory').empty();
   for (var i = 0; i < this.inventory.length; i++) {
-    $('#player-inventory').append('<li>' + this.inventory[i] + ' </li>');
+    $('#player-inventory').append('<li>' + '<a href="#" data-toggle="tooltip" title="' + this.inventory[i][1] + '">'+this.inventory[i][0]+'</a></li>');
   }
 };
 
@@ -760,7 +760,6 @@ Player.prototype.changeHealth = function(damage) {
 Player.prototype.updateHealth = function() {
   $('#player-health').text(this.health);
   $('#healthBar').attr({'style' : 'width:' +this.health+ '%'});
-
 };
 
 function handleDocumentReady() {
