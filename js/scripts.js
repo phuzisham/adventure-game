@@ -18,13 +18,15 @@ function Game() {
         },
         {
           text: 'debuggs',
-          roomName: 'river',
+          roomName: 'Floating-Dream-Cont3',
         }
       ]
     },
     {
       name: 'death1',
-      messages: ['Moments after entering the ground gives way beneath your feet and you fall to your death. The people of your homeland will surely perish now.'],
+      messages: [
+        'Moments after entering the ground gives way beneath your feet and you fall to your death. The people of your homeland will surely perish now.'
+      ],
       buttons: [],
     },
     {
@@ -396,43 +398,41 @@ function Game() {
       messages: [
         '\"Oh! a feast most fancy!\"',
         'Rivulets of spit are flung from Princess as he attrociously devours his fancy feast, you realize the spit has a soothing effect, and your wounds are healed. He must be pleased with you now.',
-        '\"Princess, millions of people are depending on me to save them. will you free me from the Ferbosphere and grant me the power to deliver them to their final resting place?\"',
+        'Imploringly, you fall to your knees and beg \"Princess, millions of people are depending on me to save them. will you free me from the Flerbosphere and grant me the power to deliver them to their final resting place?\"',
         '\"...\"'
       ],
       buttons: [
         {
-          text: 'Ask again!',
-          roomName: 'Floating-Dream-Cont4',
+          text: 'Beg Princess for help',
+          roomName: 'Floating-Dream-Cont4'
         },
+        {
+          text: 'You are faster than a pussy cat, KILL KILL KILL!',
+          roomName: 'catFight'
+        }
       ]
     },
     {
       name: 'Floating-Dream-Cont4',
       messages: [
         '\"Very well!\"',
-        'With the flick of his stump, Princess fades into the constellations and millions of white mice crawl out of the ether beneth your feet, swarming around your body until the wight of their numbers pulls you down into the darkness.'
+        'With the flick of his stump, Princess fades into the constellations and millions of white mice crawl out of the ether beneth your feet, swarming around your body until the weight of their numbers pulls you down into the darkness.'
       ],
       buttons: [
         {
           text: 'Open your eyes',
-          roomName: 'Dream-Wake',
-        },
+          roomName: 'dark-stairs',
+        }
       ]
     },
     {
-      name: 'Dream-Wake',
+      name: 'catFight',
       messages: [
-        '\"Very well!\"',
-        '.'
+        'Immediatly upon pulling out your knife, Princess turns his eye upon you. You don\'t dare move, you can\'t.',
+        'It could be fear that\'s immobilized you, or it could be Princess, you\'re not sure.',
+        'In a moment it doesn\'t matter. An immense pain ruptures from your belly and crashes into the back of your throat. You can taste blood. The knife falls from your hands as you crumple over in agonizing pain, then silence, like a fetus in the cold dark womb of space.'
       ],
-      buttons: [
-        {
-          text: 'Test',
-          roomName: 'Next',
-          healthVar : -5,
-          addsToInventory: ['Fancy Feast']
-        },
-      ]
+      buttons: [],
     },
   ];
 }
