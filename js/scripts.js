@@ -4,7 +4,7 @@ function Game() {
     {
       name: 'entrance',
       messages: [
-        'At long last you\'ve found the dungeon entrance of Flerb!!!',
+        'At long last you\'ve found the dungeon entrance of Flerb!',
         'You stand before two tunnels. The one on your left is large and appears relatively dry. The tunnel on your right appears narrow and wet.'
       ],
       buttons: [
@@ -18,7 +18,7 @@ function Game() {
         },
         {
           text: 'debuggs',
-          roomName: 'temple-battle',
+          roomName: 'cold-room',
         }
       ]
     },
@@ -32,7 +32,7 @@ function Game() {
     {
       name: 'wet-tunnel',
       messages: [
-        'You duck into the damp and narrow tunnel, blindly squeazing your way through the tight turns, cold water dripping down your neck. You stumble out into a short corridor and at the end there are two doors.',
+        'You duck into the damp and narrow tunnel, blindly squeazing your way through the tight turns, cold water dripping down your neck. You stumble out into a short corridor and at the end are two doors.',
         'The door on your right has a cold draft and soft light coming through the cracks in the frame. The door on your left is solid and heavy with no distinguishable features.'
       ],
       buttons: [
@@ -64,17 +64,13 @@ function Game() {
     {
       name: 'cold-room',
       messages: [
-        'You walk into a cold room with a torch burning on the wall. Your see a table with a sling-shot, two apples, and half a loaf of bread on it.'
+        'You walk into a cold room with a torch burning on the wall. Your see a table with a sling-shot, two apples, and half a loaf of bread on it. You grab these items and stow them.'
       ],
       buttons: [
         {
           text: 'Return To Corridor',
           roomName: 'wet-tunnel-torch',
-        },
-        {
-          text: 'Take Items',
           addsToInventory: ['Apples', 'Bread', 'Sling-Shot', 'Torch'],
-          alertMessage: 'Appples, Bread, a Sling-Shot, and a Torch were added to your inventory.'
         }
       ]
     },
@@ -141,13 +137,13 @@ function Game() {
       ],
       buttons: [
         {
-          text: 'Eat Apples For 10 Health',
+          text: 'Eat Apples',
           roomName: 'long-tunnel-end',
           healthVar: 10,
           removesFromInventory: 'Apples'
         },
         {
-          text: 'Eat Bread For 15 Health',
+          text: 'Eat Bread',
           roomName: 'long-tunnel-end',
           healthVar: 15,
           removesFromInventory: 'Bread'
@@ -174,7 +170,7 @@ function Game() {
     {
       name: 'stairs',
       messages: [
-        'Before you take your first step you pause for a moment. Is that the sound of music you hear? You can\'t be sure, because the waterfall is roaring just a few feet away, but your curiosity grows as you cautiously take each step. When you finally reach the top of the stairs your torch immediately goes dark.'
+        'You pause before you taking your first step. Is that the sound of music? You can\'t be sure with the waterfall roaring just a few feet away, but your curiosity grows as you cautiously take each step. When you finally reach the top of the stairs your torch suddenly goes dark.'
       ],
       buttons: [
         {
@@ -204,8 +200,8 @@ function Game() {
     {
       name: 'light-stairs',
       messages: [
-        'With nothing to see through the darkness to indicate the entrance of the staircase, your other senses take over. The music has grown even louder and the smell of wet fir takes hold of your nostrils.',
-        'The sense of falling, a sharp pain, a loud snap, then nothing. Only darkness behind your eyelids.'
+        'With nothing to see through the darkness to indicate the entrance of the staircase, your other senses take over. The music has grown even louder and the smell of wet fur takes hold of your nostrils.',
+        'Then the sense of falling, a sharp pain, a loud snap...nothing. Only darkness behind your eyelids.'
       ],
       buttons: [
         {
@@ -246,7 +242,7 @@ function Game() {
       name: 'tomb-shinigami',
       messages: [
         '"Nomnomnom...apples! I love apples! After all these decades trapped inside this wretched tomb, and now I\'m munching on delicious apples!"',
-        '"You showed me a way out of the Tomb and gave me apples. For your kindness, I will fly you out of here. What brought you to this place human?"',
+        '"You gave me a way out of the Tomb and gave me apples. For your kindness, I will fly you out of here. What brought you to this place human?"',
         'As you tell the Shinigami about the people of your homeland you can sense his dis-intereset. Then you speak the name of the evil priest you were sent to defeat.',
         'The Shinigami laughs. "It seems we share a common enemy. I will have my revenge and you will help me, human."'
         ],
@@ -259,15 +255,33 @@ function Game() {
         },
         {
           text: 'Go With Shinigami',
-          roomName: 'temple-entrance',
+          validatesInventoryFor: 'Wand-of-Fire',
+          roomNameFailure: 'tomb-failure',
+          roomNameSuccess: 'tomb-success',
         }
       ]
     },
     {
-      name: 'temple-entrance',
+      name: 'temple-entrance-failure',
       messages: [
         'Less than an hour later, you arrive at the temple entrance of Flerbania. The Shinigami unceremoniously dumps you on the ground.',
-        'Suddenly, a swirling purple portal opens up in front of you and the person you see stepping out makes your stomach drop.',
+        'Suddenly, a swirling purple portal opens up in front of you and your stomach drops as you recognise the person stepping out.',
+        '"What is this?" Booms the Shinigami.',
+        'The person before you is not a reflection, it\'s...YOU!',
+        'You watch yourself reach for his knife and you grin. Not knowing where he came from or how, just knowing that you are unarmed and defenseless. You pull the  from your bag. A moment later nothing but ash lies at your feet. The Shinigami laughs.'
+        ],
+      buttons: [
+        {
+          text: 'Continue',
+          roomName: 'temple-entrance2'
+        }
+      ]
+    },
+    {
+      name: 'temple-entrance-success',
+      messages: [
+        'Less than an hour later, you arrive at the temple entrance of Flerbania. The Shinigami unceremoniously dumps you on the ground.',
+        'Suddenly, a swirling purple portal opens up in front of you and your stomach drops as you recognise the person stepping out.',
         '"What is this?" Booms the Shinigami.',
         'The person before you is not a reflection, it\'s...YOU!',
         'You watch yourself reach for his knife and you grin. Not knowing where he came from or how, just knowing that you have the upper hand. You pull the Wand-of-Fire from your bag. A moment later nothing but ash lies at your feet. The Shinigami laughs.'
@@ -404,7 +418,7 @@ function Game() {
         {
           text: 'Search The Shoreline',
           roomName: 'searched river',
-          addsToInventory: ['Skeleton Key'],
+          addsToInventory: ['Key'],
           alertMessage: 'You found a key!',
           hideButton: 'hideButton'
         },
@@ -423,26 +437,11 @@ function Game() {
         {
           text: 'Open Gate',
           roomName: 'prison-cell',
-          validatesInventoryFor: 'Skeleton Key',
-          roomNameFailure: 'open-gate-failure',
-          roomNameSuccess: 'prison-cell'
         },
         {
           text: 'Return',
           roomName: 'river'
         },
-      ]
-    },
-    {
-      name: 'open-gate-failure',
-      messages: [
-        'You need a key to open this door.'
-      ],
-      buttons: [
-        {
-          text: 'Return To River',
-          roomName: 'river'
-        }
       ]
     },
     {
@@ -469,25 +468,20 @@ function Game() {
       name: 'prison-duel',
       messages: [
         'The shambling mound of rotten flesh ignites with howling agony. The acrid stench of burnt, rotting flesh churns your stomach. Composing yourself you\'re able to approach the rusted treasure chest.',
+
       ],
       buttons: [
         {
           text: 'Search Chest',
           roomName: 'Prison Pit',
-          addsToInventory: ['Fancy Feast'],
-          alertMessage: 'You managed to grab a crystalline orb containing a feast most fancy.',
-          hideButton: 'hideButton'
+          addsToInventory: ['Fancy Feast']
         },
-        {
-          text: 'Continue',
-          roomName: 'Prison Pit',
-        }
       ]
     },
     {
       name: 'Prison Pit',
       messages: [
-        'The floor crumbles beneath you, dank darkness envelops you.',
+        'The floor crumbles beneath you, dank darkness envelops you. Luckily, you managed to grab the crystalline orb containing a feast most fancy.',
       ],
       buttons: [
         {
@@ -534,29 +528,18 @@ function Game() {
           alertMessage: 'Too round!'
         },
         {
-          text: 'Skeleton Key',
+          text: 'Key',
           roomName: 'Floating-Dream-Cont3',
-          removesFromInventory: ['Skeleton Key'],
-          alertMessage: 'Gods have no use for earthly things!'
+          removesFromInventory: ['Key'],
+          alertMessage: ' Gods have no use for early things!'
         },
         {
           text: 'Fancy Feast',
-          validatesInventoryFor: 'Fancy Feast',
           removesFromInventory: ['Fancy Feast'],
-          roomNameSuccess: 'Floating-Dream-Cont3',
-          roomNameFailure: 'cat-eats-you'
-
+          roomName: 'Floating-Dream-Cont3',
+          removesFromInventory: 'Fancy Feast'
         },
       ]
-    },
-    {
-      name: 'cat-eats-you',
-      messages: [
-        'With no Fancy-Feast to offer, Princess turns his eye upon you. You don\'t dare move, you can\'t.',
-        'It could be fear that\'s immobilized you, or it could be Princess, you\'re not sure.',
-        'In a moment it doesn\'t matter. An immense pain ruptures from your belly and crashes into the back of your throat. You can taste blood. The knife falls from your hands as you crumple over in agonizing pain, then silence, like a fetus in the cold dark womb of space.'
-      ],
-      buttons: []
     },
     {
       name: 'Floating-Dream-Cont3',
