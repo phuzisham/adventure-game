@@ -4,7 +4,7 @@ function Game() {
     {
       name: 'entrance',
       messages: [
-        'At long last you\'ve found the dungeon entrance of Flerb!!!',
+        'At long last you\'ve found the dungeon entrance of Flerb!',
         'You stand before two tunnels. The one on your left is large and appears relatively dry. The tunnel on your right appears narrow and wet.'
       ],
       buttons: [
@@ -18,7 +18,7 @@ function Game() {
         },
         {
           text: 'debuggs',
-          roomName: 'temple-battle',
+          roomName: 'cold-room',
         }
       ]
     },
@@ -32,7 +32,7 @@ function Game() {
     {
       name: 'wet-tunnel',
       messages: [
-        'You duck into the damp and narrow tunnel, blindly squeazing your way through the tight turns, cold water dripping down your neck. You stumble out into a short corridor and at the end there are two doors.',
+        'You duck into the damp and narrow tunnel, blindly squeazing your way through the tight turns, cold water dripping down your neck. You stumble out into a short corridor and at the end are two doors.',
         'The door on your right has a cold draft and soft light coming through the cracks in the frame. The door on your left is solid and heavy with no distinguishable features.'
       ],
       buttons: [
@@ -170,7 +170,7 @@ function Game() {
     {
       name: 'stairs',
       messages: [
-        'Before you take your first step you pause for a moment. Is that the sound of music you hear? You can\'t be sure, because the waterfall is roaring just a few feet away, but your curiosity grows as you cautiously take each step. When you finally reach the top of the stairs your torch immediately goes dark.'
+        'You pause before you taking your first step. Is that the sound of music? You can\'t be sure with the waterfall roaring just a few feet away, but your curiosity grows as you cautiously take each step. When you finally reach the top of the stairs your torch suddenly goes dark.'
       ],
       buttons: [
         {
@@ -200,8 +200,8 @@ function Game() {
     {
       name: 'light-stairs',
       messages: [
-        'With nothing to see through the darkness to indicate the entrance of the staircase, your other senses take over. The music has grown even louder and the smell of wet fir takes hold of your nostrils.',
-        'The sense of falling, a sharp pain, a loud snap, then nothing. Only darkness behind your eyelids.'
+        'With nothing to see through the darkness to indicate the entrance of the staircase, your other senses take over. The music has grown even louder and the smell of wet fur takes hold of your nostrils.',
+        'Then the sense of falling, a sharp pain, a loud snap...nothing. Only darkness behind your eyelids.'
       ],
       buttons: [
         {
@@ -242,7 +242,7 @@ function Game() {
       name: 'tomb-shinigami',
       messages: [
         '"Nomnomnom...apples! I love apples! After all these decades trapped inside this wretched tomb, and now I\'m munching on delicious apples!"',
-        '"You showed me a way out of the Tomb and gave me apples. For your kindness, I will fly you out of here. What brought you to this place human?"',
+        '"You gave me a way out of the Tomb and gave me apples. For your kindness, I will fly you out of here. What brought you to this place human?"',
         'As you tell the Shinigami about the people of your homeland you can sense his dis-intereset. Then you speak the name of the evil priest you were sent to defeat.',
         'The Shinigami laughs. "It seems we share a common enemy. I will have my revenge and you will help me, human."'
         ],
@@ -255,15 +255,33 @@ function Game() {
         },
         {
           text: 'Go With Shinigami',
-          roomName: 'temple-entrance',
+          validatesInventoryFor: 'Wand-of-Fire',
+          roomNameFailure: 'tomb-failure',
+          roomNameSuccess: 'tomb-success',
         }
       ]
     },
     {
-      name: 'temple-entrance',
+      name: 'temple-entrance-failure',
       messages: [
         'Less than an hour later, you arrive at the temple entrance of Flerbania. The Shinigami unceremoniously dumps you on the ground.',
-        'Suddenly, a swirling purple portal opens up in front of you and the person you see stepping out makes your stomach drop.',
+        'Suddenly, a swirling purple portal opens up in front of you and your stomach drops as you recognise the person stepping out.',
+        '"What is this?" Booms the Shinigami.',
+        'The person before you is not a reflection, it\'s...YOU!',
+        'You watch yourself reach for his knife and you grin. Not knowing where he came from or how, just knowing that you are unarmed and defenseless. You pull the  from your bag. A moment later nothing but ash lies at your feet. The Shinigami laughs.'
+        ],
+      buttons: [
+        {
+          text: 'Continue',
+          roomName: 'temple-entrance2'
+        }
+      ]
+    },
+    {
+      name: 'temple-entrance-success',
+      messages: [
+        'Less than an hour later, you arrive at the temple entrance of Flerbania. The Shinigami unceremoniously dumps you on the ground.',
+        'Suddenly, a swirling purple portal opens up in front of you and your stomach drops as you recognise the person stepping out.',
         '"What is this?" Booms the Shinigami.',
         'The person before you is not a reflection, it\'s...YOU!',
         'You watch yourself reach for his knife and you grin. Not knowing where he came from or how, just knowing that you have the upper hand. You pull the Wand-of-Fire from your bag. A moment later nothing but ash lies at your feet. The Shinigami laughs.'
