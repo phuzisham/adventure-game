@@ -64,7 +64,7 @@ function Game() {
     {
       name: 'cold-room',
       messages: [
-        'You walk into a cold room with a torch burning on the wall. Your see a table with a sling-shot, two apples, and half a loaf of bread on it.'
+        'You walk into a cold room with a torch burning on the wall. Your see a table with a Sling Shot, two apples, and half a loaf of bread on it. You grab these items and stow them.'
       ],
       buttons: [
         {
@@ -73,6 +73,7 @@ function Game() {
         },
         {
           text: 'Take Items',
+
           addsToInventory: [['Apples', 'Nutritious and delicious'],
           ['Bread', 'a prison meal fit for vagabonds'],
           ['Sling Shot', ' A great way to put an eye out'],
@@ -91,7 +92,7 @@ function Game() {
         {
           text: 'Left Door',
           healthVar: -10,
-          validatesInventoryFor: 'Sling-Shot',
+          validatesInventoryFor: 'Sling Shot',
           roomNameSuccess:'bat-room-success',
           roomNameFailure:'bat-room-failure'
         }
@@ -104,7 +105,7 @@ function Game() {
       ],
       buttons: [
         {
-          text: 'Attack With Sling-Shot',
+          text: 'Attack With Sling Shot',
           roomName: 'bat-room-sling'
         },
         {
@@ -130,7 +131,7 @@ function Game() {
     {
       name: 'bat-room-sling',
       messages: [
-        'You load a marble into your sling-shot and let it loose, striking the bat square between the eyes. It falls to the ground in a heap.',
+        'You load a marble into your Sling Shot and let it loose, striking the bat square between the eyes. It falls to the ground in a heap.',
         'With a sigh of relief, you look around the room and notice the opening of a tunnel on the opposite side.'
       ],
       buttons: [
@@ -147,7 +148,7 @@ function Game() {
       ],
       buttons: [
         {
-          text: 'Attack With Sling-Shot',
+          text: 'Attack With Sling Shot',
           roomName: 'bat-room-sling'
         }
       ]
@@ -155,7 +156,7 @@ function Game() {
     {
       name: 'bat-room-knife-failure',
       messages: [
-        'You strike with the knife missing the bat. If only you had a better weapon, like a sling-shot for instance. The bat hisses, and sinks it\'s fangs into your neck and you pass out.'
+        'You strike with the knife missing the bat. If only you had a better weapon, like a Sling Shot for instance. The bat hisses, and sinks it\'s fangs into your neck and you pass out.'
       ],
       buttons: []
     },
@@ -271,7 +272,7 @@ function Game() {
     {
       name: 'tomb-shinigami',
       messages: [
-        '"Nomnomnom...apples! I love apples! After all these decades trapped inside this wretched tomb, and now I\'m munching on delicious apples!"',
+        '"Nomnomnom...apples! I love apples!"',
         '"You gave me a way out of the Tomb and gave me apples. For your kindness, I will fly you out of here. What brought you to this place human?"',
         'As you tell the Shinigami about the people of your homeland you can sense his dis-intereset. Then you speak the name of the evil priest you were sent to defeat.',
         'The Shinigami laughs. "It seems we share a common enemy. I will have my revenge and you will help me, human."'
@@ -322,7 +323,7 @@ function Game() {
     {
       name: 'temple-entrance2',
       messages: [
-        'It doesn\'t feel good to watch your self die. But it\'s not surprising that your quest spans multiple dimensions. The fate of millions rests in your hands. This was foretold. You know you are close to the end now.',
+        'It doesn\'t feel good to watch yourself die. But it\'s not surprising that your quest spans multiple dimensions. The fate of millions rests in your hands. This was foretold. You know you are close to the end now.',
         'The Shinigami seems pleased at least. Hopefully he proves himself useful in the battle to come.',
         ],
       buttons: [
@@ -343,7 +344,7 @@ function Game() {
           roomName: 'temple-conversation'
         },
         {
-          text: 'Attack!!!',
+          text: 'Attack!',
           roomName: 'temple-battle'
         }
       ]
@@ -373,7 +374,7 @@ function Game() {
         ],
       buttons: [
         {
-          text: 'Attack With Sling-Shot',
+          text: 'Attack With Sling Shot',
           roomName: 'temple-battle-sling'
         },
         {
@@ -389,7 +390,7 @@ function Game() {
     {
       name: 'temple-battle-sling',
       messages: [
-        'You let fly a marble from your Sling-Shot, striking the priest in the eye. He cries out in rage and agony, gripping his face. Seizing the moment, you dash to the altar and snatch the texts.',
+        'You let fly a marble from your Sling Shot, striking the priest in the eye. He cries out in rage and agony, gripping his face. Seizing the moment, you dash to the altar and snatch the texts.',
         ],
       buttons: [
         {
@@ -489,7 +490,7 @@ function Game() {
       name: 'prison-cell',
       messages: [
         'The door of the prison-cell creaks loudly as you swing it open. You see a pile of dusty old rags in the corner, chains hanging from the ceiling and a chest next to the pile of rags.',
-        'As you walk toward the chest, the rags shudder and begin to rise slowly. It forms a body covered in loose pieces of torn cloth and skin with a wide, skeleton grin on it\'s grizzly face.',
+        'As you walk toward the chest, the rags shudder and begin to rise slowly. It forms a looming body covered in loose pieces of torn cloth and skin.',
         'It lurches forward and claws at you.'
       ],
       buttons: [
@@ -508,12 +509,11 @@ function Game() {
     {
       name: 'prison-duel',
       messages: [
-        'The shambling mound of rotten flesh ignites with howling agony. The acrid stench of burnt, rotting flesh churns your stomach. Composing yourself you\'re able to approach the rusted treasure chest.',
+        'The shambling mound of rotten flesh ignites with howling agony. The acrid stench of burnt, rotting flesh churns your stomach. You compose yourself and approach the rusted treasure chest.',
       ],
       buttons: [
         {
           text: 'Search Chest',
-          roomName: 'Prison Pit',
           addsToInventory: ['Fancy Feast'],
           alertMessage: 'You managed to grab a crystalline orb containing a feast most fancy.',
           hideButton: 'hideButton'
@@ -539,7 +539,7 @@ function Game() {
     {
       name: 'Floating-Dream',
       messages: [
-        'After falling for what feels like an eternity, you notice a light shining in the distance. The pit in your stomach, and all your human senses are taken over by an otherworldly sense of calm, like floating on the surface of a pool. The light gets brighter as it moves closer, revealing a three legged cat. His skin hangs loosely from his body, and mange has deprived him of fur in many places. The right side of his face is torn up around a large festering scar that runs diagonally across his right eye. His body is translucent and the shimmering blues and purples of the universe wash the color of his fur, like an internet meme.'
+        'After falling for what feels like an eternity, you notice a light shining in the distance. The pit in your stomach, and all your human senses are taken over by an otherworldly sense of calm, like floating on the surface of a pool. The light gets brighter as it moves closer, revealing a three legged cat. His skin hangs loosely from his body and mange has deprived him of fur in many places. The right side of his face is torn up around a large festering scar that runs diagonally across his right eye. His body is translucent and the shimmering blues and purples of the universe wash out the color of his fur, like an internet meme.'
       ],
       buttons: [
         {
@@ -567,17 +567,18 @@ function Game() {
         '\"You are in the Flerbosphere. Proverbial catnip of the universe...I will grant you all of your desires and release you from this captivity, but I require an offering first.\"'
       ],
       buttons: [
-        {
-          text: 'Marbles',
-          roomName: 'Floating-Dream-Cont3',
-          removesFromInventory: ['Marbles'],
-          alertMessage: 'Too round!'
-        },
+        // {
+        //   text: 'Marbles',
+        //   roomName: 'Floating-Dream-Cont3',
+        //   removesFromInventory: ['Marbles'],
+        //   alertMessage: 'Too round!'
+        // },
         {
           text: 'Skeleton Key',
           roomName: 'Floating-Dream-Cont3',
           removesFromInventory: ['Skeleton Key'],
           alertMessage: 'Gods have no use for earthly things!'
+          hideButton: 'hideButton'
         },
         {
           text: 'Fancy Feast',
@@ -602,7 +603,7 @@ function Game() {
       name: 'Floating-Dream-Cont3',
       messages: [
         '\"Oh! a feast most fancy!\"',
-        'Rivulets of spit are flung from Princess as he attrociously devours his fancy feast, you realize the spit has a soothing effect, and your wounds are healed. He must be pleased with you now.',
+        'Rivulets of spit fly from Princess as he attrociously devours his fancy feast, you realize the spit has a soothing effect, and your wounds are healed. He must be pleased with you now.',
         'Imploringly, you fall to your knees and beg \"Princess, millions of people are depending on me to save them. will you free me from the Flerbosphere and grant me the power to deliver them to their final resting place?\"',
         '\"...\"'
       ],
@@ -621,13 +622,28 @@ function Game() {
       name: 'Floating-Dream-Cont4',
       messages: [
         '\"Very well!\"',
-        'With the flick of his stump, Princess fades into the constellations and millions of white mice crawl out of the ether beneth your feet, swarming around your body until the weight of their numbers pulls you down into the darkness.'
+        'With the flick of his stump, Princess fades into the constellations and millions of white mice crawl out of the ether beneth your feet. They swarm around your body until the weight of their numbers pulls you down into the darkness.'
       ],
       buttons: [
         {
           text: 'Open your eyes',
-          roomName: 'dark-stairs',
+          roomName: 'dark-stairs2',
         }
+      ]
+    },
+    {
+      name: 'dark-stairs2',
+      messages: [
+        'You still can\'t see, but you have the sense of a floor beneath you feet.',
+        'You reach your hands out and run them along the smooth walls that now contain you.',
+        'You can hear feet shuffling ahead of you, but you\'re not sure how and a growing sense of danger consumes you.'
+      ],
+      buttons: [
+        {
+          text: 'Take Out Your Knife',
+          roomName: 'light-stairs',
+          removesFromInventory: 'Knife'
+        },
       ]
     },
     {
@@ -656,7 +672,6 @@ Game.prototype.start = function() {
 
 Game.prototype.goToRoomByButton = function(button) {
   var roomToGoTo;
-  var targetButtonToHide;
 
   if (button.validatesInventoryFor) {
     if (this.getCurrentPlayer().checkForItem(button.validatesInventoryFor)) {
