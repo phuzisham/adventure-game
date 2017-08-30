@@ -1,5 +1,21 @@
+@font-face {
+  font-family: immortal;
+  src: url('fonts/immortal.ttf');
+}
+
+@font-face {
+  font-family: war-monger;
+  src: url('fonts/war-monger.ttf');
+}
+
 .jumbotron {
   background-color: #233237;
+  color: #984b43;
+  font-family: war-monger;
+}
+
+.jumbotron h1 {
+  font-size: 90px;
 }
 
 body {
@@ -13,24 +29,48 @@ body {
   border-style: none;
   margin-right: 20px;
   margin-left: -5px;
-  height: 400px;
+  height: 500px;
+  font-family: immortal;
+}
+
+#stats h3 {
+  margin-top: -10px;
+  font-family: war-monger;
+  font-size: 40px;
+}
+
+#stats p {
+  font-size: 20px;
+}
+
+.progress {
+  background: #18121e;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  margin-top: -5px;
 }
 
 #story {
   background-color: #eac67a;
   border-style: none;
   margin-right: -20px;
-  height: 400px;
-}
-
-button {
-  background-color: #18121e;
-  color: #eac67a;
+  height: 500px;
 }
 
 #story .btn {
   margin-right: 10px;
   margin-top: 10px;
+}
+
+.messages p {
+  font-family: immortal;
+  font-size: 20px;
+}
+
+button {
+  background-color: #18121e;
+  color: #eac67a;
+  font-family: immortal;
 }
 
 .try-again {
