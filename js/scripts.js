@@ -18,7 +18,7 @@ function Game() {
         },
         {
           text: 'debuggs',
-          roomName: 'temple-battle',
+          roomName: 'cold-room',
         }
       ]
     },
