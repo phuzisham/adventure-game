@@ -705,6 +705,8 @@ Player.prototype.changeHealth = function(damage) {
 
 Player.prototype.updateHealth = function() {
   $('#player-health').text(this.health);
+  $('#healthBar').attr({'style' : 'width:' +this.health+ '%'});
+
 };
 
 function handleDocumentReady() {
