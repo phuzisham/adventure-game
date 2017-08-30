@@ -64,7 +64,7 @@ function Game() {
     {
       name: 'cold-room',
       messages: [
-        'You walk into a cold room with a torch burning on the wall. Your see a table with a Sling Shot, two apples, and half a loaf of bread on it. You grab these items and stow them.'
+        'You walk into a cold room with a torch burning on the wall. Your see a table with a Sling Shot, two apples, and half a loaf of bread on it.'
       ],
       buttons: [
         {
@@ -78,7 +78,7 @@ function Game() {
           ['Bread', 'a prison meal fit for vagabonds'],
           ['Sling Shot', ' A great way to put an eye out'],
           ['Torch', 'Get lit!']],
-          alertMessage: 'Appples, Bread, a Sling-Shot, and a Torch were added to your inventory.',
+          alertMessage: 'Appples, Bread, a Sling Shot, and a Torch were added to your inventory.',
           hideButton: 'hideButton'
         }
       ]
@@ -702,7 +702,7 @@ Game.prototype.goToRoomByButton = function(button) {
   }
 
   if (button.alertMessage) {
-    $('.messages').append(button.alertMessage);
+    $('.messages').append('<h4>'+button.alertMessage+'</h4>');
     return;
   }
 
@@ -753,18 +753,18 @@ Player.prototype.displayInventory = function() {
 };
 
 Player.prototype.removeInventory = function(item) {
-	for (var i = 0; i <  this.inventory.length; i++) {
-	  if (this.inventory[i] === item) {
-    var x = this.inventory.indexOf(item);
-	  this.inventory.splice(x, 1);
-    this.displayInventory();
+	for (var i = 0; i < this.inventory.length; i++) {
+    for (var j = 0; j < this.inventory[i].length; j++) {
+      if(this.inventory[i][j] === item) {
+        this.inventory.splice(i, 1);
+      }
     }
   }
 };
 
 Player.prototype.checkForItem = function(item) {
   for (var i = 0; i < this.inventory.length; i++) {
-    if (this.inventory[i] === item) {
+    if (this.inventory[i][0] === item) {
       return true;
     }
   } return false;
