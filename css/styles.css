@@ -62,9 +62,15 @@ body {
   margin-top: 10px;
 }
 
-.messages p {
+.messages {
   font-family: immortal;
   font-size: 20px;
+}
+
+.messages h4 {
+  font-family: immortal;
+  font-size: 25px;
+  color: #984b43;
 }
 
 button {

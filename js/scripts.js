@@ -64,7 +64,7 @@ function Game() {
     {
       name: 'cold-room',
       messages: [
-        'You walk into a cold room with a torch burning on the wall. Your see a table with a sling-shot, two apples, and half a loaf of bread on it.'
+        'You walk into a cold room with a torch burning on the wall. Your see a table with a Sling Shot, two apples, and half a loaf of bread on it.'
       ],
       buttons: [
         {
@@ -77,7 +77,7 @@ function Game() {
           ['Bread', 'a prison meal fit for vagabonds'],
           ['Sling Shot', ' A great way to put an eye out'],
           ['Torch', 'Get lit!']],
-          alertMessage: 'Appples, Bread, a Sling-Shot, and a Torch were added to your inventory.',
+          alertMessage: 'Appples, Bread, a Sling Shot, and a Torch were added to your inventory.',
           hideButton: 'hideButton'
         }
       ]
@@ -91,7 +91,7 @@ function Game() {
         {
           text: 'Left Door',
           healthVar: -10,
-          validatesInventoryFor: 'Sling-Shot',
+          validatesInventoryFor: 'Sling Shot',
           roomNameSuccess:'bat-room-success',
           roomNameFailure:'bat-room-failure'
         }
@@ -104,7 +104,7 @@ function Game() {
       ],
       buttons: [
         {
-          text: 'Attack With Sling-Shot',
+          text: 'Attack With Sling Shot',
           roomName: 'bat-room-sling'
         },
         {
@@ -130,7 +130,7 @@ function Game() {
     {
       name: 'bat-room-sling',
       messages: [
-        'You load a marble into your sling-shot and let it loose, striking the bat square between the eyes. It falls to the ground in a heap.',
+        'You load a marble into your Sling Shot and let it loose, striking the bat square between the eyes. It falls to the ground in a heap.',
         'With a sigh of relief, you look around the room and notice the opening of a tunnel on the opposite side.'
       ],
       buttons: [
@@ -147,7 +147,7 @@ function Game() {
       ],
       buttons: [
         {
-          text: 'Attack With Sling-Shot',
+          text: 'Attack With Sling Shot',
           roomName: 'bat-room-sling'
         }
       ]
@@ -155,7 +155,7 @@ function Game() {
     {
       name: 'bat-room-knife-failure',
       messages: [
-        'You strike with the knife missing the bat. If only you had a better weapon, like a sling-shot for instance. The bat hisses, and sinks it\'s fangs into your neck and you pass out.'
+        'You strike with the knife missing the bat. If only you had a better weapon, like a Sling Shot for instance. The bat hisses, and sinks it\'s fangs into your neck and you pass out.'
       ],
       buttons: []
     },
@@ -373,7 +373,7 @@ function Game() {
         ],
       buttons: [
         {
-          text: 'Attack With Sling-Shot',
+          text: 'Attack With Sling Shot',
           roomName: 'temple-battle-sling'
         },
         {
@@ -389,7 +389,7 @@ function Game() {
     {
       name: 'temple-battle-sling',
       messages: [
-        'You let fly a marble from your Sling-Shot, striking the priest in the eye. He cries out in rage and agony, gripping his face. Seizing the moment, you dash to the altar and snatch the texts.',
+        'You let fly a marble from your Sling Shot, striking the priest in the eye. He cries out in rage and agony, gripping his face. Seizing the moment, you dash to the altar and snatch the texts.',
         ],
       buttons: [
         {
@@ -687,7 +687,7 @@ Game.prototype.goToRoomByButton = function(button) {
   }
 
   if (button.alertMessage) {
-    $('.messages').append(button.alertMessage);
+    $('.messages').append('<h4>'+button.alertMessage+'</h4>');
     return;
   }
 
@@ -738,18 +738,18 @@ Player.prototype.displayInventory = function() {
 };
 
 Player.prototype.removeInventory = function(item) {
-	for (var i = 0; i <  this.inventory.length; i++) {
-	  if (this.inventory[i] === item) {
-    var x = this.inventory.indexOf(item);
-	  this.inventory.splice(x, 1);
-    this.displayInventory();
+	for (var i = 0; i < this.inventory.length; i++) {
+    for (var j = 0; j < this.inventory[i].length; j++) {
+      if(this.inventory[i][j] === item) {
+        this.inventory.splice(i, 1);
+      }
     }
   }
 };
 
 Player.prototype.checkForItem = function(item) {
   for (var i = 0; i < this.inventory.length; i++) {
-    if (this.inventory[i] === item) {
+    if (this.inventory[i][0] === item) {
       return true;
     }
   } return false;
