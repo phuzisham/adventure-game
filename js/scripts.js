@@ -73,7 +73,10 @@ function Game() {
         },
         {
           text: 'Take Items',
-          addsToInventory: ['Apples', 'Bread', 'Sling-Shot', 'Torch'],
+          addsToInventory: [['Apples', 'Nutritious and delicious'],
+          ['Bread', 'a prison meal fit for vagabonds'],
+          ['Sling Shot', ' A great way to put an eye out'],
+          ['Torch', 'Get lit!']],
           alertMessage: 'Appples, Bread, a Sling-Shot, and a Torch were added to your inventory.',
           hideButton: 'hideButton'
         }
