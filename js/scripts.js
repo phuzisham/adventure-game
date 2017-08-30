@@ -18,7 +18,7 @@ function Game() {
         },
         {
           text: 'debuggs',
-          roomName: 'cold-room',
+          roomName: 'temple-battle',
         }
       ]
     },
@@ -74,7 +74,8 @@ function Game() {
         {
           text: 'Take Items',
           addsToInventory: ['Apples', 'Bread', 'Sling-Shot', 'Torch'],
-          alertMessage: 'Appples, Bread, a Sling-Shot, and a Torch were added to your inventory.'
+          alertMessage: 'Appples, Bread, a Sling-Shot, and a Torch were added to your inventory.',
+          hideButton: 'hideButton'
         }
       ]
     },
@@ -86,13 +87,15 @@ function Game() {
       buttons: [
         {
           text: 'Left Door',
-          roomName: 'bat-room',
-          healthVar: -10
+          healthVar: -10,
+          validatesInventoryFor: 'Sling-Shot',
+          roomNameSuccess:'bat-room-success',
+          roomNameFailure:'bat-room-failure'
         }
       ]
     },
     {
-      name: 'bat-room',
+      name: 'bat-room-success',
       messages: [
         'You cautiously walk into the room with the torch held in front of you and are greeted with the sight of a giant ugly bat. It screeches loudly and dives at you, biting your face. You take 10 damage.',
       ],
@@ -109,10 +112,23 @@ function Game() {
       ]
     },
     {
+      name: 'bat-room-failure',
+      messages: [
+        'You cautiously walk into the room with the torch held in front of you and are greeted with the sight of a giant ugly bat. It screeches loudly and dives at you, biting your face. You take 10 damage.',
+      ],
+      buttons: [
+        {
+          text: 'Attack With Knife',
+          roomName: 'bat-room-knife-failure',
+          healthVar: -10
+        }
+      ]
+    },
+    {
       name: 'bat-room-sling',
       messages: [
         'You load a marble into your sling-shot and let it loose, striking the bat square between the eyes. It falls to the ground in a heap.',
-        'You look around the room and notice the opening of a tunnel on the opposite side.'
+        'With a sigh of relief, you look around the room and notice the opening of a tunnel on the opposite side.'
       ],
       buttons: [
         {
@@ -132,6 +148,13 @@ function Game() {
           roomName: 'bat-room-sling'
         }
       ]
+    },
+    {
+      name: 'bat-room-knife-failure',
+      messages: [
+        'You strike with the knife missing the bat. If only you had a better weapon, like a sling-shot for instance. The bat hisses, and sinks it\'s fangs into your neck and you pass out.'
+      ],
+      buttons: []
     },
     {
       name: 'long-tunnel',
@@ -260,8 +283,8 @@ function Game() {
         {
           text: 'Go With Shinigami',
           validatesInventoryFor: 'Wand-of-Fire',
-          roomNameFailure: 'tomb-failure',
-          roomNameSuccess: 'tomb-success',
+          roomNameFailure: 'temple-entrance-failure',
+          roomNameSuccess: 'temple-entrance-success',
         }
       ]
     },
@@ -272,14 +295,10 @@ function Game() {
         'Suddenly, a swirling purple portal opens up in front of you and your stomach drops as you recognise the person stepping out.',
         '"What is this?" Booms the Shinigami.',
         'The person before you is not a reflection, it\'s...YOU!',
-        'You watch yourself reach for his knife and you grin. Not knowing where he came from or how, just knowing that you are unarmed and defenseless. You pull the  from your bag. A moment later nothing but ash lies at your feet. The Shinigami laughs.'
+        'You watch yourself reach for his knife and you grin. Not knowing where he came from or how, just knowing that you are unarmed and at his mercy. You scream as he darts forward.',
+        'A moment later, blood lies at your feet. The Shinigami laughs.'
         ],
-      buttons: [
-        {
-          text: 'Continue',
-          roomName: 'temple-entrance2'
-        }
-      ]
+      buttons: []
     },
     {
       name: 'temple-entrance-success',
@@ -330,13 +349,13 @@ function Game() {
       name: 'temple-conversation',
       messages: [
         '"You know why I\'m here, Priest! Hand over the sacred Flerbian texts!"',
-        '"And what is the Shinigami doing here?"',
-        '"To eat your flesh and apples old man."',
+        '"And what is he doing here?," the priest replies, gesturing at the Shinigami.',
+        '"To eat your flesh and apples old man." Snarls the Shinigami.',
         '"You will never get the texts or my apples!"'
         ],
       buttons: [
         {
-          text: 'Attack!!!',
+          text: 'Attack!',
           roomName: 'temple-battle',
           healthVar: -40
         }
@@ -345,21 +364,21 @@ function Game() {
     {
       name: 'temple-battle',
       messages: [
-        'As you ready your weapon a burst of white light blast through the rood screen (used to divide the chancel from the navel) tearing through the Shinigami leaving nothing left.',
+        'As you ready your weapon a burst of white light blast through the rood screen vaporizing the Shinigami leaving nothing left.',
         'You narrowly escape but are deeply wounded.',
         'You take 40 damage.'
         ],
       buttons: [
         {
-          text: 'Attack With Sling-Shot!!!',
+          text: 'Attack With Sling-Shot',
           roomName: 'temple-battle-sling'
         },
         {
-          text: 'Attack With Knife!!!',
+          text: 'Attack With Knife',
           roomName: 'temple-battle-knife'
         },
         {
-          text: 'Attack With Wand-of-Fire!!!',
+          text: 'Attack With Wand-of-Fire',
           roomName: 'temple-battle-fire'
         }
       ]
@@ -367,7 +386,7 @@ function Game() {
     {
       name: 'temple-battle-sling',
       messages: [
-        'You loose a marble from your Sling-Shot, striking the priest in the eye. He cries out in rage and agony, gripping his face. Seizing the moment, you dash to the altar and snatch the texts.',
+        'You let fly a marble from your Sling-Shot, striking the priest in the eye. He cries out in rage and agony, gripping his face. Seizing the moment, you dash to the altar and snatch the texts.',
         ],
       buttons: [
         {
@@ -392,7 +411,7 @@ function Game() {
     {
       name: 'temple-battle-fire',
       messages: [
-        'You flick the Wand-of-Fire and a stream of flames engulfs the altar, burning it and everything around to ashes.',
+        'You flick the Wand-of-Fire and a stream of flames engulfs the altar, burning everything to ashes.',
         'You\'ve realized your mistake too late. The sacred texts are gone. You have failed. In your grief you take your own life. The people of your homeland will surely perish now.'
       ],
       buttons: []
@@ -406,7 +425,7 @@ function Game() {
       buttons: [
         {
           text: 'Try Again',
-          roomName: 'loser-screen'
+          roomName: 'entrance'
         },
       ]
     },
@@ -634,6 +653,7 @@ Game.prototype.start = function() {
 
 Game.prototype.goToRoomByButton = function(button) {
   var roomToGoTo;
+  var targetButtonToHide;
 
   if (button.validatesInventoryFor) {
     if (this.getCurrentPlayer().checkForItem(button.validatesInventoryFor)) {
@@ -660,7 +680,6 @@ Game.prototype.goToRoomByButton = function(button) {
   }
 
   if (button.hideButton) {
-    console.log('buttonbottobnhodfi');
     $('#'+button.hideButton).hide(800);
   }
 
