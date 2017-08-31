@@ -18,9 +18,9 @@ function Game() {
           image: 'prison-cell.jpg'
         },
         {
-          text: 'debuggs',
-          roomName: 'temple-battle-sling',
-          image: '.png'
+          text: 'debug',
+          roomName: 'open-gate-failure',
+          image: 'red-demon.png'
         }
       ]
     },
@@ -34,7 +34,7 @@ function Game() {
     {
       name: 'wet-tunnel',
       messages: [
-        'You duck into the damp and narrow tunnel, blindly squeazing your way through the tight turns, cold water dripping down your neck. You stumble out into a short corridor and at the end are two doors.',
+        'You duck into the damp and narrow tunnel, blindly squeezing your way through the tight turns, cold water dripping down your neck. You stumble out into a short corridor and at the end are two doors.',
         'The door on your right has a cold draft and soft light coming through the cracks in the frame. The door on your left is solid and heavy with no distinguishable features.'
       ],
       buttons: [
@@ -79,11 +79,11 @@ function Game() {
         {
           text: 'Take Items',
 
-          addsToInventory: [['Apples', 'Nutritious and delicious'],
-          ['Bread', 'a prison meal fit for vagabonds'],
-          ['Sling Shot', ' A great way to put an eye out'],
+          addsToInventory: [['Apples', 'Nutritious and delicious.'],
+          ['Bread', 'A prison meal fit for vagabonds.'],
+          ['Sling Shot', 'A great way to put an eye out!'],
           ['Torch', 'Get lit!']],
-          alertMessage: 'Apples, Bread, a Sling Shot, and a Torch were added to your inventory.',
+          alertMessage: 'Apples, bread, a sling shot, and a torch were added to your inventory.',
           hideButton: 'hideButton'
         }
       ]
@@ -170,7 +170,7 @@ function Game() {
     {
       name: 'long-tunnel',
       messages: [
-        'This tunnel is longer than the ones before. As you walk you notice it has smooth uniform sides. You continue in an uninterupted straight line for many hours.',
+        'This tunnel is longer than the ones before. As you walk you notice it has smooth uniform sides. You continue in an uninterrupted straight line for many hours.',
         'Your journey has left you feeling tired and weak.'
       ],
       buttons: [
@@ -289,13 +289,13 @@ function Game() {
       messages: [
         '"Nomnomnom...apples! I love apples!"',
         '"You gave me a way out of the Tomb and gave me apples. For your kindness, I will fly you out of here. What brought you to this place human?"',
-        'As you tell the Shinigami about the people of your homeland you can sense his dis-intereset. Then you speak the name of the evil priest you were sent to defeat.',
+        'As you tell the Shinigami about the people of your homeland you can sense his disinterest. Then you speak the name of the evil priest you were sent to defeat.',
         'The Shinigami laughs. "It seems we share a common enemy. I will have my revenge and you will help me, human."'
         ],
       buttons: [
         {
           text: 'Search Room',
-          addsToInventory: [['Key', 'A regular old key'], [ 'Knife', 'aim the pointy end at an enemy, and thrust'], ['Wand-of-Fire', 'Aveda-kedava and poof!']],
+          addsToInventory: [['Key', 'A regular old key.'], [ 'Knife', 'Aim the pointy end at an enemy, and thrust.'], ['Wand-of-Fire', 'Burn them!']],
           alertMessage: 'You found a key, knife, and the Wand-of-Fire!',
           hideButton: 'hideButton',
         },
@@ -311,7 +311,7 @@ function Game() {
       name: 'temple-entrance-failure',
       messages: [
         'Less than an hour later, you arrive at the temple entrance of Flerbania. The Shinigami unceremoniously dumps you on the ground.',
-        'Suddenly, a swirling purple portal opens up in front of you and your stomach drops as you recognise the person stepping out.',
+        'Suddenly, a swirling purple portal opens up in front of you and your stomach drops as you recognize the person stepping out.',
         '"What is this?" Booms the Shinigami.',
         'The person before you is not a reflection, it\'s...YOU!',
         'You watch yourself reach for his knife and you grin. Not knowing where he came from or how, just knowing that you are unarmed and at his mercy. You scream as he darts forward.',
@@ -323,7 +323,7 @@ function Game() {
       name: 'temple-entrance-success',
       messages: [
         'Less than an hour later, you arrive at the temple entrance of Flerbania. The Shinigami unceremoniously dumps you on the ground.',
-        'Suddenly, a swirling purple portal opens up in front of you and your stomach drops as you recognise the person stepping out.',
+        'Suddenly, a swirling purple portal opens up in front of you and your stomach drops as you recognize the person stepping out.',
         '"What is this?" Booms the Shinigami.',
         'The person before you is not a reflection, it\'s...YOU!',
         'You watch yourself reach for his knife and you grin. Not knowing where he came from or how, just knowing that you have the upper hand. You pull the Wand-of-Fire from your bag. A moment later nothing but ash lies at your feet. The Shinigami laughs.'
@@ -491,13 +491,8 @@ function Game() {
           roomName: 'prison-cell',
           validatesInventoryFor: 'Skeleton Key',
           roomNameFailure: 'open-gate-failure',
-          roomNameSuccess: 'prison-cell',
-          image: '.png'
-        },
-        {
-          text: 'Return',
-          roomName: 'river'
-        },
+          roomNameSuccess: 'prison-cell'
+        }
       ]
     },
     {
@@ -544,8 +539,8 @@ function Game() {
         {
           text: 'Search Chest',
           addsToInventory: [['Fancy Feast' , 'A Crystalline orb filled with ground fish chunks.']],
-          alertMessage: 'You managed to grab a crystalline orb containing a feast most fancy.',
-          hideButton: 'hideButton',
+          alertMessage: 'You managed to grab the crystalline orb containing a feast most fancy.',
+          hideButton: 'hideButton'
         },
         {
           text: 'Continue',
@@ -607,7 +602,6 @@ function Game() {
           roomNameSuccess: 'Floating-Dream-Cont3',
           roomNameFailure: 'cat-eats-you',
           image: '.png'
-
         }
       ]
     },
@@ -645,7 +639,7 @@ function Game() {
       name: 'Floating-Dream-Cont4',
       messages: [
         '\"Very well!\"',
-        'With the flick of his stump, Princess fades into the constellations and millions of white mice crawl out of the ether beneth your feet. They swarm around your body until the weight of their numbers pulls you down into the darkness.'
+        'With the flick of his stump, Princess fades into the constellations and millions of white mice crawl out of the ether beneath your feet. They swarm around your body until the weight of their numbers pulls you down into the darkness.'
       ],
       buttons: [
         {
@@ -674,7 +668,7 @@ function Game() {
     {
       name: 'catFight',
       messages: [
-        'Immediatly upon pulling out your knife, Princess turns his eye upon you. You don\'t dare move, you can\'t.',
+        'Immediately upon pulling out your knife, Princess turns his eye upon you. You don\'t dare move, you can\'t.',
         'It could be fear that\'s immobilized you, or it could be Princess, you\'re not sure.',
         'In a moment it doesn\'t matter. An immense pain ruptures from your belly and crashes into the back of your throat. You can taste blood. The knife falls from your hands as you crumple over in agonizing pain, then silence, like a fetus in the cold dark womb of space.'
       ],
@@ -773,7 +767,7 @@ Game.prototype.goToRoom = function(roomName) {
 };
 
 function Player() {
-  this.inventory = [['Knife', 'A rusty knife.'], ['Marbles', 'Billy\'s lucky bag of marbles.']];
+  this.inventory = [['Knife', 'A rusty knife.'], ['Teeth', 'Billy\'s lucky bag of teeth.']];
   this.health = 90;
 }
 
