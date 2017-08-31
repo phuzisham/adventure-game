@@ -47,7 +47,7 @@ function Game() {
         {
           text: 'Right Door',
           roomName: 'cold-room',
-          image: 'table.png'
+          image: 'breadApp.jpg'
         }
       ],
     },
@@ -61,7 +61,7 @@ function Game() {
         {
           text: 'Right Door',
           roomName: 'cold-room',
-          image: 'table.png'
+          image: 'breadApp.jpg'
         }
       ]
     },
