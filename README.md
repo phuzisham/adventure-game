@@ -25,7 +25,7 @@ _You are a weary traveler from a faraway land, in search of the ancient Flerbian
 
 ## Setup/Installation Requirements
 
-1. _Access the full game on our website [flerbianquest.com](https://github.com/rikimontgomery/pizza-parlor) or access our GitHub repository [here](https://phuzisham.github.io/adventure-game/)._
+1. _Access the full game on our website [flerbianquest.com](https://phuzisham.github.io/adventure-game) or access our GitHub repository [here](https://github.com/phuzisham/adventure-game)._
 
 2. _You can view the directory files online or play the game on your local device by clone them directly from the repository._
 
@@ -34,12 +34,6 @@ _You are a weary traveler from a faraway land, in search of the ancient Flerbian
 4. _Open the index file in your browser and the text files in your text editor of choice._
 
 _**We also recommend a high definition TV or monitor to get the full experience._
-
-## Known Bugs
-
-* _..._
-* _..._
-* _..._
 
 ## Support and contact details
 
