@@ -21,6 +21,10 @@
   font-size: 90px;
 }
 
+.mainaudio {
+  margin-left: -20px;
+}
+
 body {
   background-color: #18121e;
   overflow-y: hidden;
@@ -41,6 +45,12 @@ body {
   margin-top: -10px;
   font-family: war-monger;
   font-size: 50px;
+}
+
+#stats h4 {
+  font-size: 16px;
+  margin-bottom: -3px;
+  //color: #eac67a;
 }
 
 #stats p {
@@ -110,4 +120,9 @@ button {
 
 .try-again-end {
   display: none;
+}
+
+.mainaudio h4 {
+  color: #eac67a;
+  font-family: immortal;
 }
