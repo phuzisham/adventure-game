@@ -16,11 +16,6 @@ function Game() {
           text: 'Right Tunnel',
           roomName: 'wet-tunnel',
           image: 'prison-cell.jpg'
-        },
-        {
-          text: 'debug',
-          roomName: 'win-screen',
-          image: 'red-demon.png'
         }
       ]
     },

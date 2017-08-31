@@ -21,6 +21,7 @@ _You are a weary traveler from a faraway land, in search of the ancient Flerbian
 | Create a function that checks the inventory. | Check inventory for Apples | If true, send to "tomb-success" story. |
 | Track player health. | Input health change -15. | Output 85% health in bar. |
 | Call images with story elements by button. | Click "Attack With Knife" button.  | Get zombie.png |
+| Plays soundtrack. | Click play button.  | Game soundtrack plays on loop. |
 
 ## Setup/Installation Requirements
 
