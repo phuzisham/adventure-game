@@ -19,7 +19,7 @@ function Game() {
         },
         {
           text: 'debug',
-          roomName: 'open-gate-failure',
+          roomName: 'win-screen',
           image: 'red-demon.png'
         }
       ]
@@ -73,12 +73,13 @@ function Game() {
       buttons: [
         {
           text: 'Return To Corridor',
-          roomName: 'wet-tunnel-torch',
-          image: 'torchy.webp'
+          validatesInventoryFor: 'Torch',
+          roomNameSuccess: 'wet-tunnel-torch',
+          roomNameFailure: 'wet-tunnel-end',
+          image: 'torch2.png'
         },
         {
           text: 'Take Items',
-
           addsToInventory: [['Apples', 'Nutritious and delicious.'],
           ['Bread', 'A prison meal fit for vagabonds.'],
           ['Sling Shot', 'A great way to put an eye out!'],
@@ -96,18 +97,16 @@ function Game() {
       buttons: [
         {
           text: 'Left Door',
-          healthVar: -10,
-          validatesInventoryFor: 'Sling Shot',
-          roomNameSuccess:'bat-room-success',
-          roomNameFailure:'bat-room-failure',
+          healthVar: -20,
+          roomName:'bat-room',
           image: 'bat.png'
         }
       ]
     },
     {
-      name: 'bat-room-success',
+      name: 'bat-room',
       messages: [
-        'You cautiously walk into the room with the torch held in front of you and are greeted with the sight of a giant ugly bat. It screeches loudly and dives at you, biting your face. You take 10 damage.',
+        'You cautiously walk into the room with the torch held in front of you and are greeted with the sight of a giant ugly bat. It screeches loudly and dives at you, biting your face. You take 20 damage.',
       ],
       buttons: [
         {
@@ -117,20 +116,7 @@ function Game() {
         {
           text: 'Attack With Knife',
           roomName: 'bat-room-knife',
-          healthVar: -10
-        }
-      ]
-    },
-    {
-      name: 'bat-room-failure',
-      messages: [
-        'You cautiously walk into the room with the torch held in front of you and are greeted with the sight of a giant ugly bat. It screeches loudly and dives at you, biting your face. You take 10 damage.',
-      ],
-      buttons: [
-        {
-          text: 'Attack With Knife',
-          roomName: 'bat-room-knife-failure',
-          healthVar: -10
+          healthVar: -20
         }
       ]
     },
@@ -151,7 +137,7 @@ function Game() {
     {
       name: 'bat-room-knife',
       messages: [
-        'You strike with the knife missing the bat. It deals you 10 more damage.'
+        'You strike with the knife missing the bat. It deals you 20 more damage.'
       ],
       buttons: [
         {
@@ -161,13 +147,6 @@ function Game() {
       ]
     },
     {
-      name: 'bat-room-knife-failure',
-      messages: [
-        'You strike with the knife missing the bat. If only you had a better weapon, like a Sling Shot for instance. The bat hisses, and sinks it\'s fangs into your neck and you pass out.'
-      ],
-      buttons: []
-    },
-    {
       name: 'long-tunnel',
       messages: [
         'This tunnel is longer than the ones before. As you walk you notice it has smooth uniform sides. You continue in an uninterrupted straight line for many hours.',
@@ -175,16 +154,16 @@ function Game() {
       ],
       buttons: [
         {
-          text: 'Eat Apples For 10 Health',
+          text: 'Eat Apples For 15 Health',
           roomName: 'long-tunnel-end',
-          healthVar: 10,
+          healthVar: 15,
           removesFromInventory: 'Apples',
           image: 'waterfallRiver.jpg'
         },
         {
-          text: 'Eat Bread For 15 Health',
+          text: 'Eat Bread For 20 Health',
           roomName: 'long-tunnel-end',
-          healthVar: 15,
+          healthVar: 20,
           removesFromInventory: 'Bread',
           image: 'waterfallRiver.jpg'
         }
@@ -245,7 +224,7 @@ function Game() {
     {
       name: 'light-stairs',
       messages: [
-        'With nothing to see through the darkness to indicate the entrance of the staircase, your other senses take over. The music has grown even louder and the smell of wet fur takes hold of your nostrils.',
+        'With nothing to see through the darkness, your other senses take over. The music has grown even louder and the smell of wet fur takes hold of your nostrils. You clutch the handle of your knife desperately.',
         'Then the sense of falling, a sharp pain, a loud snap...nothing. Only darkness behind your eyelids.'
       ],
       buttons: [
@@ -279,7 +258,18 @@ function Game() {
         'Spots of sharp, bright light swim in your vision. Your knife lays on the ground just out of reach. A dark figure stands over you.',
         '"Do I smell apples?"',
         'As your vision clears, you find yourself gazing up into the dead-eyed grimace of a Shinigami, Lord of Death.',
-        'The Shinigami begins to laugh, "I do smell apples! After all these decades trapped inside this wretched tomb. I\'d nearly forgot the smell if apples." He floats towards you with a massive claw extended.',
+        'The Shinigami begins to laugh, "I do smell apples! After all these decades trapped inside this wretched tomb. I\'d nearly forgot the smell if apples." He floats towards you with a massive claw extended.'
+      ],
+      buttons: [
+        {
+          text: 'Continue',
+          roomName: 'tomb-failure-death'
+        }
+      ]
+    },
+    {
+      name: 'tomb-failure-death',
+      messages: [
         'As the Shinigami feasts on the partially digested apples in your stomach, your thoughts turn to the millions whose hopes depend on you, for they will surely perish now.'
       ],
       buttons: []
@@ -325,20 +315,33 @@ function Game() {
         'Less than an hour later, you arrive at the temple entrance of Flerbania. The Shinigami unceremoniously dumps you on the ground.',
         'Suddenly, a swirling purple portal opens up in front of you and your stomach drops as you recognize the person stepping out.',
         '"What is this?" Booms the Shinigami.',
-        'The person before you is not a reflection, it\'s...YOU!',
-        'You watch yourself reach for his knife and you grin. Not knowing where he came from or how, just knowing that you have the upper hand. You pull the Wand-of-Fire from your bag. A moment later nothing but ash lies at your feet. The Shinigami laughs.'
+        'The person before you is not a reflection, it\'s...YOU!'
         ],
       buttons: [
         {
-          text: 'Continue',
+          text: 'Talk To Yourself',
+          roomName: 'temple-entrance3'
+        },
+        {
+          text: 'Attack!',
           roomName: 'temple-entrance2',
           image: 'temple-door.jpg'
         }
       ]
     },
     {
+      name: 'temple-entrance3',
+      messages: [
+        '"This was foretold by the Oracle of Flerm, but it does not have to be! We can end this now. Let us work together. With both our cunning there\'s no telling what we can accomplish."',
+        '"I didn\'t cross dimensions to help save your universe. My people are counting on me. There can be only one."',
+        'As he was talking you failed to notice his hands shift. Now it\'s too late...'
+        ],
+      buttons: []
+    },
+    {
       name: 'temple-entrance2',
       messages: [
+        'You watch yourself reach for his knife and you grin. Not knowing where he came from or how, just knowing that you have the upper hand. You pull the Wand-of-Fire from your bag. A moment later nothing but ash lies at your feet. The Shinigami laughs.',
         'It doesn\'t feel good to watch yourself die. But it\'s not surprising that your quest spans multiple dimensions. The fate of millions rests in your hands. This was foretold. You know you are close to the end now.',
         'The Shinigami seems pleased at least. Hopefully he proves himself useful in the battle to come.',
         ],
@@ -455,6 +458,7 @@ function Game() {
         {
           text: 'Try Again',
           roomName: 'entrance',
+          image: 'cave-entrance.png'
         },
       ]
     },
@@ -524,9 +528,10 @@ function Game() {
         {
           text: 'Attack With Knife',
           roomName: 'prison-duel',
-          alertMessage: 'Stab, stab, stabbing the undead is futile! And then he bit you! Take 15 damage.',
-          healthVar : -15,
-          image: 'zombie.png'
+          alertMessage: 'Stab, stab, stabbing the undead is futile! Take 20 damage.',
+          healthVar : -20,
+          image: 'zombie.png',
+          hideButton: 'hideButton'
         },
       ]
     },
@@ -545,7 +550,7 @@ function Game() {
         {
           text: 'Continue',
           roomName: 'Prison Pit',
-          image: '.png'
+          image: 'transUniverse.png'
         }
       ]
     },
@@ -558,7 +563,6 @@ function Game() {
         {
           text: 'Continue Falling?',
           roomName: 'Floating-Dream',
-          image: 'princess.png'
         },
       ]
     },
@@ -571,8 +575,7 @@ function Game() {
         {
           text: 'What are you?',
           roomName: 'Floating-Dream-Cont',
-          healthVar : +5,
-          image: '.png'
+          image: 'princess.png'
         },
       ]
     },
@@ -601,6 +604,7 @@ function Game() {
           removesFromInventory: ['Fancy Feast'],
           roomNameSuccess: 'Floating-Dream-Cont3',
           roomNameFailure: 'cat-eats-you',
+          healthVar: 20,
           image: '.png'
         }
       ]
@@ -618,9 +622,7 @@ function Game() {
       name: 'Floating-Dream-Cont3',
       messages: [
         '\"Oh! a feast most fancy!\"',
-        'Rivulets of spit fly from Princess as he attrociously devours his fancy feast, you realize the spit has a soothing effect, and your wounds are healed. He must be pleased with you now.',
-        'Imploringly, you fall to your knees and beg \"Princess, millions of people are depending on me to save them. will you free me from the Flerbosphere and grant me the power to deliver them to their final resting place?\"',
-        '\"...\"'
+        'Rivulets of spit fly from Princess as he attrociously devours his fancy feast, you realize the spit has a soothing effect, and your wounds are healed. 20 health restored.'
       ],
       buttons: [
         {
@@ -638,6 +640,7 @@ function Game() {
     {
       name: 'Floating-Dream-Cont4',
       messages: [
+        'Imploringly, you fall to your knees and beg \"Princess, millions of people are depending on me to save them. will you free me from the Flerbosphere and grant me the power to deliver them to their final resting place?\"',
         '\"Very well!\"',
         'With the flick of his stump, Princess fades into the constellations and millions of white mice crawl out of the ether beneath your feet. They swarm around your body until the weight of their numbers pulls you down into the darkness.'
       ],
@@ -652,7 +655,7 @@ function Game() {
     {
       name: 'dark-stairs2',
       messages: [
-        'You still can\'t see, but you have the sense of a floor beneath you feet.',
+        'You can\'t see through the darkness, but you have the sense of a floor beneath you feet and the faint sound of music in the distance.',
         'You reach your hands out and run them along the smooth walls that now contain you.',
         'You can hear feet shuffling ahead of you, but you\'re not sure how and a growing sense of danger consumes you.'
       ],
@@ -765,14 +768,13 @@ Game.prototype.goToRoom = function(roomName) {
       }, '');
       window.$('#story .button-group').show(800);
     });
-
   } else {
-    window.$('.button-group').empty(800);
-    window.$('.try-again').show(800);
-    $('#storyImages').prepend('<img src="img/death.png">');
-    $("#storyImages img:last-child").remove();
-  }
-};
+      window.$('.button-group').empty(800);
+      window.$('.try-again').show(800);
+      $('#storyImages').prepend('<img src="img/death.png">');
+      $("#storyImages img:last-child").remove();
+    }
+  };
 
 function Player() {
   this.inventory = [['Knife', 'A rusty knife.'], ['Teeth', 'Billy\'s lucky bag of teeth.']];
@@ -827,6 +829,10 @@ function prepareGame() {
 
 function prepareClickHandlers() {
   $('.try-again').click(function() {
+    location.reload();
+  });
+
+  $('.try-again-end').click(function() {
     location.reload();
   });
 
