@@ -80,6 +80,7 @@ body {
   font-family: immortal;
   color: #984b43;
 }
+
 #messageDiv h4 {
   font-size: 25px;
 }
@@ -107,6 +108,6 @@ button {
   display: none;
 }
 
-.roomies {
+.try-again-end {
   display: none;
 }
