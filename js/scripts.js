@@ -15,6 +15,7 @@ function Game() {
         {
           text: 'Right Tunnel',
           roomName: 'wet-tunnel',
+          image: 'prison-cell.jpg'
         },
         {
           text: 'debug',
@@ -45,7 +46,8 @@ function Game() {
         },
         {
           text: 'Right Door',
-          roomName: 'cold-room'
+          roomName: 'cold-room',
+          image: 'table.png'
         }
       ],
     },
@@ -58,7 +60,8 @@ function Game() {
       buttons: [
         {
           text: 'Right Door',
-          roomName: 'cold-room'
+          roomName: 'cold-room',
+          image: 'table.png'
         }
       ]
     },
@@ -71,6 +74,7 @@ function Game() {
         {
           text: 'Return To Corridor',
           roomName: 'wet-tunnel-torch',
+          image: 'torchy.webp'
         },
         {
           text: 'Take Items',
@@ -95,7 +99,8 @@ function Game() {
           healthVar: -10,
           validatesInventoryFor: 'Sling Shot',
           roomNameSuccess:'bat-room-success',
-          roomNameFailure:'bat-room-failure'
+          roomNameFailure:'bat-room-failure',
+          image: 'bat.png'
         }
       ]
     },
@@ -138,7 +143,8 @@ function Game() {
       buttons: [
         {
           text: 'Enter Tunnel',
-          roomName: 'long-tunnel'
+          roomName: 'long-tunnel',
+          image: 'breadApp.jpg'
         }
       ]
     },
@@ -172,13 +178,15 @@ function Game() {
           text: 'Eat Apples For 10 Health',
           roomName: 'long-tunnel-end',
           healthVar: 10,
-          removesFromInventory: 'Apples'
+          removesFromInventory: 'Apples',
+          image: 'waterfallRiver.jpg'
         },
         {
           text: 'Eat Bread For 15 Health',
           roomName: 'long-tunnel-end',
           healthVar: 15,
-          removesFromInventory: 'Bread'
+          removesFromInventory: 'Bread',
+          image: 'waterfallRiver.jpg'
         }
       ]
     },
@@ -191,11 +199,13 @@ function Game() {
       buttons: [
         {
           text: 'Follow River',
-          roomName: 'river'
+          roomName: 'river',
+          image: 'boat.png'
         },
         {
           text: 'Climb Stairs',
-          roomName: 'stairs'
+          roomName: 'stairs',
+          image: 'waterfallRiver.jpg'
         }
       ]
     },
@@ -207,11 +217,13 @@ function Game() {
       buttons: [
         {
           text: 'Feel Your Way Around',
-          roomName: 'dark-stairs'
+          roomName: 'dark-stairs',
+          image: '.png'
         },
         {
           text: 'Return To The River',
-          roomName: 'river'
+          roomName: 'river',
+          image: '.png'
         }
       ]
     },
@@ -225,7 +237,8 @@ function Game() {
         {
           text: 'Take Out Your Knife',
           roomName: 'light-stairs',
-          removesFromInventory: 'Knife'
+          removesFromInventory: 'Knife',
+          image: '.png'
         },
       ]
     },
@@ -241,6 +254,7 @@ function Game() {
           validatesInventoryFor: 'Apples',
           roomNameFailure: 'tomb-failure',
           roomNameSuccess: 'tomb-success',
+          image: 'red-demon.png'
         }
       ]
     },
@@ -255,7 +269,7 @@ function Game() {
         {
           text: 'Give Apples',
           removesFromInventory: 'Apples',
-          roomName: 'tomb-shinigami'
+          roomName: 'tomb-shinigami',
         }
       ]
     },
@@ -283,7 +297,7 @@ function Game() {
           text: 'Search Room',
           addsToInventory: [['Key', 'A regular old key.'], [ 'Knife', 'Aim the pointy end at an enemy, and thrust.'], ['Wand-of-Fire', 'Burn them!']],
           alertMessage: 'You found a key, knife, and the Wand-of-Fire!',
-          hideButton: 'hideButton'
+          hideButton: 'hideButton',
         },
         {
           text: 'Go With Shinigami',
@@ -317,7 +331,8 @@ function Game() {
       buttons: [
         {
           text: 'Continue',
-          roomName: 'temple-entrance2'
+          roomName: 'temple-entrance2',
+          image: 'temple-door.jpg'
         }
       ]
     },
@@ -330,7 +345,8 @@ function Game() {
       buttons: [
         {
           text: 'Enter Temple',
-          roomName: 'temple'
+          roomName: 'temple',
+          image: '.png'
         }
       ]
     },
@@ -342,11 +358,13 @@ function Game() {
       buttons: [
         {
           text: 'Speak To Priest',
-          roomName: 'temple-conversation'
+          roomName: 'temple-conversation',
+          image: '.png'
         },
         {
           text: 'Attack!',
-          roomName: 'temple-battle'
+          roomName: 'temple-battle',
+          image: '.png'
         }
       ]
     },
@@ -362,7 +380,8 @@ function Game() {
         {
           text: 'Attack!',
           roomName: 'temple-battle',
-          healthVar: -40
+          healthVar: -40,
+          image: '.png'
         }
       ]
     },
@@ -376,15 +395,18 @@ function Game() {
       buttons: [
         {
           text: 'Attack With Sling Shot',
-          roomName: 'temple-battle-sling'
+          roomName: 'temple-battle-sling',
+          image: '.png'
         },
         {
           text: 'Attack With Knife',
-          roomName: 'temple-battle-knife'
+          roomName: 'temple-battle-knife',
+          image: '.png'
         },
         {
           text: 'Attack With Wand-of-Fire',
-          roomName: 'temple-battle-fire'
+          roomName: 'temple-battle-fire',
+          image: '.png'
         }
       ]
     },
@@ -396,7 +418,8 @@ function Game() {
       buttons: [
         {
           text: 'Escape With The Texts!!!',
-          roomName: 'win-screen'
+          roomName: 'win-screen',
+          image: 'army.jpg'
         },
       ]
     },
@@ -409,7 +432,8 @@ function Game() {
       buttons: [
         {
           text: 'Leave With The Texts',
-          roomName: 'win-screen'
+          roomName: 'win-screen',
+          image: 'army.jpg'
         },
       ]
     },
@@ -430,7 +454,7 @@ function Game() {
       buttons: [
         {
           text: 'Try Again',
-          roomName: 'entrance'
+          roomName: 'entrance',
         },
       ]
     },
@@ -445,14 +469,14 @@ function Game() {
       buttons: [
         {
           text: 'Search The Shoreline',
-          roomName: 'searched river',
-          addsToInventory: [['Skeleton Key', 'A key made of real bone!']],
+          addsToInventory: [['Skeleton Key', 'Key made of real bone!']],
           alertMessage: 'You found a key!',
-          hideButton: 'hideButton'
+          hideButton: 'hideButton',
         },
         {
           text: 'Board a rickety boat',
-          roomName: 'boat'
+          roomName: 'boat',
+          image: 'prison-cell.jpg'
         },
       ]
     },
@@ -479,7 +503,8 @@ function Game() {
       buttons: [
         {
           text: 'Return To River',
-          roomName: 'river'
+          roomName: 'river',
+          image: 'waterfallRiver.jpg'
         }
       ]
     },
@@ -494,12 +519,14 @@ function Game() {
         {
           text: 'Attack With Torch',
           roomName: 'prison-duel',
+          image: 'zombie.png'
         },
         {
           text: 'Attack With Knife',
           roomName: 'prison-duel',
-          alertMessage: 'Stab, stab, stabbing the undead is futile! And then he bit you! You take 15 damage.',
-          healthVar : -15
+          alertMessage: 'Stab, stab, stabbing the undead is futile! And then he bit you! Take 15 damage.',
+          healthVar : -15,
+          image: 'zombie.png'
         },
       ]
     },
@@ -518,6 +545,7 @@ function Game() {
         {
           text: 'Continue',
           roomName: 'Prison Pit',
+          image: '.png'
         }
       ]
     },
@@ -530,6 +558,7 @@ function Game() {
         {
           text: 'Continue Falling?',
           roomName: 'Floating-Dream',
+          image: 'princess.png'
         },
       ]
     },
@@ -542,7 +571,8 @@ function Game() {
         {
           text: 'What are you?',
           roomName: 'Floating-Dream-Cont',
-          healthVar : +5
+          healthVar : +5,
+          image: '.png'
         },
       ]
     },
@@ -555,6 +585,7 @@ function Game() {
         {
           text: 'Where have you taken me?',
           roomName: 'Floating-Dream-Cont2',
+          image: 'space.jpg'
         },
       ]
     },
@@ -565,26 +596,13 @@ function Game() {
       ],
       buttons: [
         {
-          text: 'Teeth',
-          roomName: 'Floating-Dream-Cont3',
-          removesFromInventory: ['Teeth'],
-          alertMessage: 'Too round!'
-        },
-        {
-          text: 'Skeleton Key',
-          roomName: 'Floating-Dream-Cont3',
-          removesFromInventory: ['Skeleton Key'],
-          alertMessage: 'Gods have no use for earthly things!',
-          hideButton: 'hideButton'
-        },
-        {
-          text: 'Fancy Feast',
+          text: 'Let Princess Search Your Bag',
           validatesInventoryFor: 'Fancy Feast',
           removesFromInventory: ['Fancy Feast'],
           roomNameSuccess: 'Floating-Dream-Cont3',
-          roomNameFailure: 'cat-eats-you'
-
-        },
+          roomNameFailure: 'cat-eats-you',
+          image: '.png'
+        }
       ]
     },
     {
@@ -607,11 +625,13 @@ function Game() {
       buttons: [
         {
           text: 'Beg Princess for help',
-          roomName: 'Floating-Dream-Cont4'
+          roomName: 'Floating-Dream-Cont4',
+          image: '.png'
         },
         {
           text: 'You are faster than a pussy cat, KILL KILL KILL!',
-          roomName: 'catFight'
+          roomName: 'catFight',
+          image: '.png'
         }
       ]
     },
@@ -625,6 +645,7 @@ function Game() {
         {
           text: 'Open your eyes',
           roomName: 'dark-stairs2',
+          image: '.png'
         }
       ]
     },
@@ -639,7 +660,8 @@ function Game() {
         {
           text: 'Take Out Your Knife',
           roomName: 'light-stairs',
-          removesFromInventory: 'Knife'
+          removesFromInventory: 'Knife',
+          image: '.png'
         },
       ]
     },
