@@ -1,4 +1,4 @@
-# _Adventure Game_
+# _Quest For The Flerbian Texts_
 
 #### _A text adventure the most cunning heroes and heroins, 08.31.2017_
 
@@ -12,17 +12,19 @@ _You are a weary traveler from a faraway land, in search of the ancient Flerbian
 
 | Description        | Input           | Output  |
 | ------------- |:-------------:| -----:|
-| ... | ... | ... |
-| ... | ... | ... |
-| ... | ... | ... |
-| ... | ... | ... |
-| ... | ... | ... |
-| ... | ... | ... |
-| ... | ... | ... |
+| Buttons that load story elements. | Click "River" button | Go to "River" story. |
+| Try again buttons point to death element. | Click "Try Again" button. | Return to the "Entrance" story. |
+| Under construction alert for unfinished stories. |  Click "Zombie" Button  | Get "This room is under construction: Zombie Story" alert. |
+| Buttons to add items to your inventory. | Click "Add Key" button. | Key moves to inventory. |
+| Inventory buttons also reveal an alert message. | Click "Add Key" button. | Get "You found a skeleton key" |
+| Hover over inventory to reveal descriptions. | Hover over "Skeleton Key" item. | Get "Key made of real bone!" description. |
+| Create a function that checks the inventory. | Check inventory for Apples | If true, send to "tomb-success" story. |
+| Track player health. | Input health change -15. | Output 85% health in bar. |
+| Call images with story elements by button. | Click "Attack With Knife" button.  | Get zombie.png |
 
 ## Setup/Installation Requirements
 
-1. _Access the full game on our website [adventuregame.com](https://github.com/rikimontgomery/pizza-parlor) or access our GitHub repository [here](https://phuzisham.github.io/adventure-game/)._
+1. _Access the full game on our website [flerbianquest.com](https://github.com/rikimontgomery/pizza-parlor) or access our GitHub repository [here](https://phuzisham.github.io/adventure-game/)._
 
 2. _You can view the directory files online or play the game on your local device by clone them directly from the repository._
 
@@ -40,7 +42,7 @@ _**We also recommend a high definition TV or monitor to get the full experience.
 
 ## Support and contact details
 
-_If you have questions or you run into any issues on your adventure please email the [{Adventure Game} Team] (fake.info@adventuregame.com)_
+_If you have questions or you run into any issues on your quest please email the [Quest For The Flerbian Texts] (fake.info@flerbianquest.com)_
 
 ## Technologies Used
 
