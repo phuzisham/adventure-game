@@ -75,6 +75,15 @@ body {
   margin-top: 10px;
 }
 
+#messageDiv {
+  display: none;
+  font-family: immortal;
+  color: #984b43;
+}
+#messageDiv h4 {
+  font-size: 25px;
+}
+
 #storyImages img {
   width: 450px;
   padding: 20px;
@@ -86,12 +95,6 @@ body {
 .messages {
   font-family: immortal;
   font-size: 20px;
-}
-
-.messages h4 {
-  font-family: immortal;
-  font-size: 25px;
-  color: #984b43;
 }
 
 button {

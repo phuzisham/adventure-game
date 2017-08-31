@@ -721,19 +721,25 @@ Game.prototype.goToRoomByButton = function(button) {
   }
 
   if (button.alertMessage) {
-    $('.messages').append('<h4>'+button.alertMessage+'</h4>');
+    $('#messageDiv').empty();
+    $('#messageDiv').append('<h4>'+button.alertMessage+'</h4>');
+    $('#messageDiv').show(800);
     return;
   }
 
   if (button.image) {
-    $('#storyImages').append('<img src="img/'+button.image+'">');
-    $("#storyImages img:first-child").remove();
+    $('#storyImages').fadeOut(800, 'swing', function() {
+      $('#storyImages').append('<img src="img/'+button.image+'">');
+      $('#storyImages img:first-child').remove();
+      $('#storyImages').fadeIn(800);
+    });
   }
 
   this.goToRoom(roomToGoTo);
 };
 
 Game.prototype.goToRoom = function(roomName) {
+  window.$('#messageDiv').hide(800);
   var room = this.rooms.find(function(room) {
     return room.name === roomName;
   });
@@ -744,9 +750,11 @@ Game.prototype.goToRoom = function(roomName) {
   }
 
   window.$('#story .messages').hide(800, function() {
+
     window.$('#story .messages')[0].innerHTML = room.messages.reduce(function(memo, message) {
       return memo + '<p>' + message + '</p>';
     }, '');
+
     window.$('#story .messages').show(800);
   });
 
