@@ -54,12 +54,19 @@ body {
   background-color: #eac67a;
   border-style: none;
   margin-right: -20px;
-  height: 500px;
+  padding-bottom: 10px;
 }
 
 #story .btn {
   margin-right: 10px;
   margin-top: 10px;
+}
+
+#storyImages img {
+  width: 450px;
+  padding: 20px;
+  float: right;
+  margin-right: 30px;
 }
 
 .messages {
