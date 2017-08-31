@@ -19,6 +19,7 @@ function Game() {
         {
           text: 'debuggs',
           roomName: 'tomb-shinigami',
+          image: 'red-demon.png'
         }
       ]
     },
@@ -706,6 +707,11 @@ Game.prototype.goToRoomByButton = function(button) {
     return;
   }
 
+  if (button.image) {
+    $('#storyImages').append('<img src="img/'+button.image+'">');
+    $("#storyImages img:first-child").remove();
+  }
+
   this.goToRoom(roomToGoTo);
 };
 
@@ -737,6 +743,8 @@ Game.prototype.goToRoom = function(roomName) {
   } else {
     window.$('.button-group').empty(800);
     window.$('.try-again').show(800);
+    $('#storyImages').prepend('<img src="img/death.png">');
+    $("#storyImages img:last-child").remove();
   }
 };
 
