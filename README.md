@@ -1,12 +1,18 @@
 # _Quest For The Flerbian Texts_
 
-#### _A text adventure the most cunning heroes and heroins, 08.31.2017_
+#### _Created: 08.28.2017_
+#### _Last Modified: 11.23.2017_
 
 #### By _Sarah Lindmar, Austin Cummings, David Hale, and Riki Montgomery_
 
 ## Description
 
 _You are a weary traveler from a faraway land, in search of the ancient Flerbian Texts. The future of your people is at stake in this story, a story as old as time. It will take more than a sharp wit and keen fighting skills to explore the treacherous catacombs of the land of Flerb and outmaneuver the mysterious beast that haunt its darkest chambers. Monitor your supplies and your health closely as you move from level to level, but don't underestimate the consequences of your choices, for your demise will seem trivial compared to the immense suffering of your people. Failure is not an option._
+
+![Screenshot](https://github.com/phuzisham/adventure-game/blob/master/img/cap.png "Screen Capture")
+![Screenshot](https://github.com/phuzisham/adventure-game/blob/master/img/cap.png "Screen Capture")
+![Screenshot](https://github.com/phuzisham/adventure-game/blob/master/img/cap.png "Screen Capture")
+
 
 ## Specs
 
@@ -37,7 +43,7 @@ _**We also recommend a high definition TV or monitor to get the full experience.
 
 ## Support and contact details
 
-_If you have questions or you run into any issues on your quest please email the [Quest For The Flerbian Texts] (fake.info@flerbianquest.com)_
+_If you have questions or you run into any issues on your quest please email the Quest For The Flerbian Texts at fake.info@flerbianquest.com_
 
 ## Technologies Used
 
@@ -45,6 +51,6 @@ _We used Bootstrap for our front-end and JavaScript, Jquery, and JSON for the ba
 
 ### License
 
-*MIT License}*
+*MIT License*
 
 Copyright (c) 2017 **_Sarah Lindmar, Austin Cummings, David Hale, and Riki Montgomery_**
