@@ -10,8 +10,8 @@
 _You are a weary traveler from a faraway land, in search of the ancient Flerbian Texts. The future of your people is at stake in this story, a story as old as time. It will take more than a sharp wit and keen fighting skills to explore the treacherous catacombs of the land of Flerb and outmaneuver the mysterious beast that haunt its darkest chambers. Monitor your supplies and your health closely as you move from level to level, but don't underestimate the consequences of your choices, for your demise will seem trivial compared to the immense suffering of your people. Failure is not an option._
 
 ![Screenshot](https://github.com/phuzisham/adventure-game/blob/master/img/cap.png "Screen Capture")
-![Screenshot](https://github.com/phuzisham/adventure-game/blob/master/img/cap.png "Screen Capture")
-![Screenshot](https://github.com/phuzisham/adventure-game/blob/master/img/cap.png "Screen Capture")
+![Screenshot](https://github.com/phuzisham/adventure-game/blob/master/img/cap2.png "Screen Capture")
+![Screenshot](https://github.com/phuzisham/adventure-game/blob/master/img/cap3.png "Screen Capture")
 
 
 ## Specs
